@@ -1,0 +1,4728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Hamza | Python Developer & Ethical Coding Expert</title> 
+    <meta name="description" content="Muhammad Hamza is an experienced Python Developer and ethical master of coding, specializing in robust web development and advanced security solutions. Hire a Python expert!">
+    <meta name="keywords" content="Python developer, ethical master of coding, python expert, Muhammad Hamza portfolio, Python web developer, cyber security coding, ethical hacking, full-stack developer">
+    <meta name="author" content="Muhammad Hamza">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer">    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151933;
+            --bg-tertiary: #1e2139;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a9c9;
+            --accent: #5a67d8;
+            --accent-hover: #4c51bf;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #f56565;
+            --terminal-bg: #0d1117;
+            --terminal-text: #c9d1d9;
+            --terminal-green: #7ee787;
+            --terminal-yellow: #d29922;
+            --terminal-red: #ff7b72;
+            --warp-purple: #7c3aed;
+            --warp-blue: #3b82f6;
+            --purple-glow: rgba(124, 58, 237, 0.4);
+            --terminal-red: #ff7b72;        /* Red for weak/exploit */
+            --warp-purple: #7c3aed;         /* Passploit Logo ka color */
+            --terminal-light-blue: #38BDF8;
+            --logo-blue: #007bff; /* Bright blue (rgb(0, 123, 255)) */
+            --text-glow: 0 0 5px rgba(126, 231, 135, 0.5); /* Soft green glow */
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            /* OVERRIDE: Using the slightly lighter dark color (#09091f) for the overall page background */
+            /* This ensures the margin and glow of the #home section (which uses --bg-primary/#0a0e27) is visible */
+            background-color: #09091f;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+
+        /* 1. Base Navbar Style */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            /* Background: Halka sa solid color, variable se control */
+            background-color: var(--bg-primary); 
+            /* Box Shadow for depth */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+            backdrop-filter: blur(12px); /* Blur value thodi badha di */
+            z-index: 1000;
+            padding: 0.85rem 5%; /* Padding halka sa kam kiya, ya aap 1rem rakh sakte hain */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        /* 2. Logo/Brand Name Styling */
+        .logo {
+            font-size: 1.6rem; /* Thoda bada font */
+            font-weight: 800; /* Extra bold */
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            letter-spacing: 0.5px; /* Thoda sa spacing */
+        }
+        
+        .logo i {
+            color: var(--warp-purple);
+            font-size: 1.8rem; /* Icon size badha diya */
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover i {
+            transform: rotate(3deg); /* Hover par halka sa rotation effect */
+        }
+        
+        /* 3. Navigation Links (Buttons) Styling */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.75rem; /* Gap halka sa kam kiya */
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem; /* Font size halka sa badha diya */
+            padding: 0.5rem 0.2rem; /* Padding added */
+            transition: color 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            /* Active line ke transition ke liye */
+            overflow: hidden; 
+        }
+        
+        /* 4. Link Hover Effect (Underline Effect) */
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* New Hover Effect: Animated Underline */
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%; /* Start off-screen */
+            width: 100%;
+            height: 3px;
+            background-color: var(--warp-purple);
+            transition: left 0.3s ease;
+        }
+        
+        .nav-links a:hover::before {
+            left: 0; /* Move on-screen on hover */
+        }
+        
+        
+        /* 5. Active Link Styling (Current Page) */
+        .nav-links a.active {
+            color: var(--warp-purple);
+            font-weight: 600;
+        }
+        
+        /* Active Indicator Line (Thoda mota) */
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px; /* Height badha di */
+            background-color: var(--warp-purple);
+            /* Active par koi transition ya animation nahi */
+            transition: none; 
+        }
+        
+        /* Mobile Menu Button Styling (Hamburger Icon) */
+        .menu-toggle {
+            display: none;
+            background-color: var(--bg-secondary); /* Solid background color */
+            border: 1px solid var(--warp-purple); /* Halka sa border */
+            color: var(--warp-purple);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle:hover {
+            background-color: var(--warp-purple);
+            color: var(--text-primary);
+        }
+        
+       
+        /* Sections */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px; /* Standard content width */
+            margin: 0 auto; /* Center alignment */
+            position: relative;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* General Section Title (Used for sections like Portfolio and Contact) */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--warp-purple);
+        }
+
+        /* --- OVERRIDE FOR ABOUT SECTION (Pro Look) --- */
+        /* This ensures the title inside the terminal card does not get the centered underline */
+
+        /* 1. Remove the default underline from the card's title */
+        .data-card-container .section-title::after {
+            content: none;
+        }
+
+        /* 2. Override center alignment for the card title */
+        .data-card-container .section-title {
+            text-align: left;
+            margin-bottom: 0; /* Margin will be provided by the .about-header padding */
+        }
+        /* ------------------------------------------- */
+
+
+        .section-subtitle {
+        font-size: 1.15rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+         text-shadow: 0 0 5px rgba(0, 191, 255, 0.6),
+                      0 0 10px rgba(0, 191, 255, 0.3);
+    }
+
+        /* Purple Shape */
+        .purple-shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(124, 58, 237, 0.05));
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 10%;
+        }
+
+        /* Home Section */
+        #home {
+            min-height: 100vh;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: visible;
+            padding: 5rem 0; 
+                
+            /* YEH LINE ZAROORI HAI: Isse #home ka child (hero-content) ko center mein rakhega */
+            /* Aur content aur terminal ke beech ka gap maintain rahega */
+            margin: 0 auto; 
+                
+            /* 🎯 CRITICAL CHANGE: Poori Screen Width use karein */
+            max-width: 80vw; /* 90vw se 100vw kiya */
+            width: 100%; /* Ensure full width */
+                
+            /* Glow effect retained */
+            box-shadow: 0 0 100px rgba(124, 58, 237, 0.2), 
+                        0 0 200px rgba(124, 58, 237, 0.1); 
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.9), rgba(30, 33, 57, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(124, 58, 237, 0.1)" stroke-width="0.5"/></svg>');
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            /* 🎯 YEH LINE ZAROORI HAI: Isse content screen ke beech mein rahega */
+            max-width: 1200px; /* Ya koi bhi max width jo aapko chahiye */
+            width: 90%; /* Screen ke hisab se 90% chaurai le */
+            
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            
+            /* 🎯 GAP KAM KAR DIYA GAYA */
+            gap: 8rem; /* 4rem se 1.5rem kiya (lagbhag 24px) */
+            
+            align-items: center;
+            
+            /* PADDING HATA DIYA: Ab gap khud kam hoga */
+            padding: 0; 
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--text-primary), var(--warp-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-in-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem; /* Gap halka sa badhaya */
+            animation: fadeIn 1s ease-in-out 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.7rem; /* Padding thodi badhai */
+            border-radius: 0.6rem; /* Golai halki si badhai */
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem; /* Icon aur text ke beech ka gap */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother and slower transition */
+            cursor: pointer;
+            border: none;
+            font-size: 1.05rem; /* Font size halka sa badhaya */
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden; /* Shine effect ke liye zaruri */
+        }
+        
+        /* 2. Primary Button with Accent Glow */
+        .btn-primary {
+            background-color: var(--warp-purple);
+            color: var(--text-primary); /* White/Primary Text */
+            /* Shadow for depth and subtle glow */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 
+                        0 0 20px rgba(124, 58, 237, 0.3); /* Accent Glow */
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            /* Lifting effect */
+            transform: translateY(-3px); 
+            /* Shadow aur badh jaye */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3),
+                        0 0 30px rgba(124, 58, 237, 0.5); /* Stronger Glow */
+        }
+        
+        /* 3. Secondary Button with Modern Outline Effect */
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--warp-purple); /* Border mota kiya */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            /* Reverse effect */
+            background-color: var(--warp-purple);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--warp-purple); /* Ensure border color is correct */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 4. Shine Effect (Optional, but very "Pro") */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15); /* Halka white layer */
+            transform: skewX(-20deg);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .btn:hover::after {
+            /* Hover par shine right ki taraf move ho */
+            left: 100%;
+        }
+
+        /* ------------------------------------------- */
+        /* --- NEW GLOW VARIABLES & KEYFRAMES (The Core Fix) --- */
+        /* ------------------------------------------- */
+
+        /* Define a text glow for the blue/star colors */
+        .terminal-prompt, .output-star {
+            text-shadow: 0 0 5px rgba(0, 191, 255, 0.6), 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+
+        /* Define a text glow for the green/plus colors */
+        .output-plus, .terminal-cursor {
+            text-shadow: 0 0 5px rgba(126, 231, 135, 0.5), 0 0 10px rgba(126, 231, 135, 0.2);
+        }
+
+
+        /* ------------------------------------------- */
+        /* --- HERO TERMINAL CONTAINER --- */
+        /* ------------------------------------------- */
+
+        .hero-terminal {
+            /* Base Styles (Retained) */
+            background-color: var(--terminal-bg); 
+            border-radius: 0.75rem;
+            overflow: hidden;
+            height: 450px;
+            width: 120%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        
+            /* Border: Thoda sa zyada prominent aur glow ke saath (Retained) */
+            border: 2px solid rgba(124, 58, 237, 0.5); 
+        
+            /* Shadow/Glow Effect (Enhanced) - Retained the powerful purple glow */
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.6), 
+                0 0 55px rgba(124, 58, 237, 0.6), 
+                0 0 100px rgba(124, 58, 237, 0.2);
+        
+            /* Animation (Retained) */
+            animation: fadeIn 1s ease-in-out 0.6s forwards, 
+                       terminalFloat 8s ease-in-out infinite alternate;
+
+            /* 3D Properties: Retained */
+            transform-origin: center center;
+            transform-style: preserve-3d;
+
+            /* Initial state/Animation state */
+            opacity: 0;
+            margin-left: -10%; 
+        }
+
+        /* Yeh class JavaScript se logo container par lagayi jayegi */
+        .passploit-logo-pulsing {
+            /* Logo blue color ko aur chamakdar banata hai */
+            color: var(--logo-blue) !important; 
+            /* Permanent Pulse Animation */
+            animation: logoPulse 3s ease-in-out infinite alternate;
+        }
+        
+        /* Logo ke andar ke har character par transition apply karen */
+        .passploit-logo-pulsing span {
+            transition: filter 0.3s, text-shadow 0.3s;
+        }
+
+        /* ------------------------------------------- */
+        /* --- HEADER & BODY (Retained) --- */
+        /* ------------------------------------------- */
+        .terminal-header {
+            background-color: #161b22;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-button.close {
+            background-color: #ff5f56;
+        }
+
+        .terminal-button.minimize {
+            background-color: #ffbd2e;
+        }
+
+        .terminal-button.maximize {
+            background-color: #27c93f;
+        }
+
+        .terminal-title {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .terminal-body {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            /* 💥 FIX: Consistent monospace font is crucial for terminal look */
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace; 
+            font-size: 0.875rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .terminal-body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ------------------------------------------- */
+        /* --- TERMINAL CONTENT STYLES --- */
+        /* ------------------------------------------- */
+
+        .terminal-line {
+            margin-bottom: 0.5rem;
+            display: flex;
+            /* FIX: Ensure prompt and command are on the same line */
+            white-space: pre; 
+        }
+
+        .terminal-prompt {
+            color: var(--terminal-light-blue);
+            margin-right: 0.5rem;
+            /* Text Glow applied from the merged rules above */
+        }
+
+        .terminal-command {
+            color: var(--terminal-text);
+        }
+
+        .terminal-output {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap; /* Allows long lines to wrap */
+        }
+
+        /* Colored Output Classes with Glow */
+        .output-minus { 
+            color: var(--terminal-red); 
+            font-weight: bold;
+            /* No glow on red/error for contrast */
+        }
+
+        .output-star { 
+            color: var(--terminal-light-blue); 
+            font-weight: bold;
+            /* Text Glow applied */
+        }
+
+        .output-plus { 
+            color: var(--terminal-green); 
+            font-weight: bold;
+            /* Text Glow applied */
+        }
+
+        /* 💥 NEW: Bolding for outputs like **Good** */
+        .terminal-output strong {
+            color: var(--terminal-green); /* Green color for bolded text */
+            text-shadow: 0 0 3px rgba(126, 231, 135, 0.5); /* Subtle green glow */
+        }
+
+        /* ------------------------------------------- */
+        /* --- CURSOR (The Blinking Fix) --- */
+        /* ------------------------------------------- */
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1rem;
+            background-color: var(--terminal-text);
+            /* 💥 FIX: Blink animation is now defined */
+            animation: blink 1s step-end infinite;
+            /* Text Glow applied (using the green glow defined above) */
+        }
+
+        /* ------------------------------------------- */
+        /* --- GLOW VARIABLES & SHARED OUTPUT STYLES --- */
+        /* ------------------------------------------- */
+
+        /* Define a text glow for the blue/star colors */
+        /* Renamed: .terminal-prompt -> .hack-console-prompt */
+        .hack-console-prompt, .output-star {
+            text-shadow: 0 0 5px rgba(0, 191, 255, 0.6), 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+
+        /* Define a text glow for the green/plus colors */
+        /* Renamed: .terminal-cursor -> .cursor (for consistency) */
+        .output-plus, .cursor { 
+            text-shadow: 0 0 5px rgba(126, 231, 135, 0.5), 0 0 10px rgba(126, 231, 135, 0.2);
+        }
+
+
+        /* ------------------------------------------- */
+        /* --- HACK-CONSOLE HERO CONTAINER (NEW NAME) --- */
+        /* ------------------------------------------- */
+
+        /* Renamed: .hero-terminal -> .hack-console-hero-wrapper */
+        .hack-console-hero-wrapper {
+            /* Base Styles (Retained) */
+            background-color: var(--terminal-bg); 
+            border-radius: 0.75rem;
+            overflow: hidden;
+            height: 550px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+
+            /* Border: Thoda sa zyada prominent aur glow ke saath (Retained) */
+            border: 2px solid rgba(124, 58, 237, 0.5); 
+
+            /* Shadow/Glow Effect (Enhanced) - Retained the powerful purple glow */
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.6), 
+                0 0 55px rgba(124, 58, 237, 0.6), 
+                0 0 100px rgba(124, 58, 237, 0.2);
+
+            /* Animation (Retained) */
+            animation: fadeIn 1s ease-in-out 0.6s forwards, 
+                       terminalFloat 8s ease-in-out infinite alternate;
+        
+            /* 3D Properties: Retained */
+            transform-origin: center center;
+            transform-style: preserve-3d;
+        
+            /* Initial state/Animation state */
+            opacity: 0;
+            margin: 0 auto; 
+        }
+
+        /* Yeh class JavaScript se logo container par lagayi jayegi */
+        .passploit-logo-pulsing {
+            color: var(--logo-blue) !important; 
+            animation: logoPulse 3s ease-in-out infinite alternate;
+        }
+
+        /* Logo ke andar ke har character par transition apply karen */
+        .passploit-logo-pulsing span {
+            transition: filter 0.3s, text-shadow 0.3s;
+        }
+
+        /* ------------------------------------------- */
+        /* --- HEADER & BODY --- */
+        /* ------------------------------------------- */
+        /* Renamed: .terminal-header -> .hack-console-header */
+        .hack-console-header {
+            background-color: #161b22;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Renamed: .terminal-buttons -> .hack-console-buttons */
+        .hack-console-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Renamed: .terminal-button -> .hack-console-button */
+        .hack-console-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* Renamed: .terminal-button.close -> .hack-console-button.close */
+        .hack-console-button.close {
+            background-color: #ff5f56;
+        }
+
+        /* Renamed: .terminal-button.minimize -> .hack-console-button.minimize */
+        .hack-console-button.minimize {
+            background-color: #ffbd2e;
+        }
+
+        /* Renamed: .terminal-button.maximize -> .hack-console-button.maximize */
+        .hack-console-button.maximize {
+            background-color: #27c93f;
+        }
+
+        /* Renamed: .terminal-title -> .hack-console-title */
+        .hack-console-title {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Renamed: .terminal-body -> .hack-console-body */
+        .hack-console-body {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace; 
+            font-size: 0.875rem;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .hack-console-body::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ------------------------------------------- */
+        /* --- TERMINAL CONTENT STYLES --- */
+        /* ------------------------------------------- */
+
+        /* Renamed: .terminal-line -> .hack-console-line */
+        .hack-console-line {
+            margin-bottom: 0.5rem;
+            display: flex;
+            white-space: pre; 
+        }
+
+        /* Renamed: .terminal-prompt -> .hack-console-prompt */
+        .hack-console-prompt {
+            color: var(--terminal-light-blue);
+            margin-right: 0.5rem;
+        }
+
+        /* Renamed: .terminal-command -> .hack-console-command */
+        .hack-console-command {
+            color: var(--terminal-text);
+        }
+
+        /* Renamed: .terminal-output -> .hack-console-output-line */
+        .hack-console-output-line {
+            color: var(--text-secondary);
+            margin-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            white-space: pre-wrap; 
+        }
+
+        /* Colored Output Classes with Glow are unchanged for compatibility: .output-minus, .output-star, .output-plus */
+        .output-minus { 
+            color: var(--terminal-red); 
+            font-weight: bold;
+        }
+
+        .output-star { 
+            color: var(--terminal-light-blue); 
+            font-weight: bold;
+        }
+
+        .output-plus { 
+            color: var(--terminal-green); 
+            font-weight: bold;
+        }
+
+        /* Renamed: .terminal-output strong -> .hack-console-output-line strong */
+        .hack-console-output-line strong {
+            color: var(--terminal-green); 
+            text-shadow: 0 0 3px rgba(126, 231, 135, 0.5); 
+        }
+
+        /* ------------------------------------------- */
+        /* --- CURSOR --- */
+        /* ------------------------------------------- */
+
+        /* Renamed: .terminal-cursor -> .cursor (for consistency with about section) */
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1rem;
+            background-color: var(--terminal-text);
+            animation: blink 1s step-end infinite;
+        }
+
+
+        /* --- ABOUT SECTION --- */
+        #about {
+            /* Is section ko wrapper ke taur par use karte hain */
+            display: none; /* Keep for navigation */
+            padding: 5rem 0; /* Top/Bottom padding */
+            margin: 0 auto;
+            height: auto;
+            align-items: center;
+            min-height: 50vh;
+            max-width: 80vw; /* Section ki maximum chaurai (Home jaisi) */
+        }
+
+        .data-card-container { 
+        /* ✅ FIX: Width aur Height Properties wapas add ki hain (Home terminal jaisi) */
+        max-width: 80vw; /* Card ki maximum chaurai */
+        min-height: 60vh; /* Card ki minimum oonchai */
+        margin: 0 auto; /* Card ko #about wrapper ke andar center karega */
+    
+        /* BACKGROUND FIX: Home terminal ka dark gradient + grid pattern */
+        background: linear-gradient(135deg, rgba(10, 14, 39, 0.9), rgba(30, 33, 57, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(124, 58, 237, 0.1)" stroke-width="0.5"/></svg>');
+        
+        border: 2px solid rgba(124, 58, 237, 0.5); 
+        border-radius: 0.75rem;
+        padding: 2rem; 
+        width: 100%;
+
+            /* GLOW FIX: Home section jaisa double box-shadow */
+            box-shadow: 
+                /* Home section ka outer glow */
+                0 0 100px rgba(124, 58, 237, 0.2), 
+                0 0 200px rgba(124, 58, 237, 0.1),
+                /* Card ka neon inner glow */
+                0 0 15px rgba(124, 58, 237, 0.4) inset;
+        
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            color: var(--terminal-text);
+            position: relative;
+            text-align: left;
+        }
+
+        /* --- OVERRIDE FOR ABOUT SECTION TITLE --- */
+        /* Remove the default underline and centering from the card's title */
+        .data-card-container .section-title::after {
+            content: none;
+        }
+        .data-card-container .section-title {
+            text-align: left;
+            margin-bottom: 0; 
+            font-size: 1.5rem; /* Match the style of the terminal title */
+        }
+
+        /* Header (Terminal Title + Status) */
+        .about-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2); 
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Status Indicator (Pulse) */
+        .status-indicator {
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .status-indicator .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--terminal-green);
+            border-radius: 50%;
+            margin-right: 5px;
+            box-shadow: 0 0 5px var(--terminal-green);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Main Content Wrapper (2 Columns) */
+        .data-segments-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem;
+            padding: 1rem 0;
+        }
+
+        /* Segment Title (e.g., CORE SPECIALIZATION) */
+        .segment-title {
+            font-size: 1.1rem;
+            color: var(--warp-purple, var(--accent)); 
+            border-bottom: 1px dashed rgba(124, 58, 237, 0.1);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Bio Content Text */
+        .data-segments-wrapper p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .data-segments-wrapper strong {
+            color: var(--terminal-green);
+            font-weight: bold;
+        }
+
+        /* Quick Stats Styling */
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.05); 
+        }
+
+        .stat-label {
+            color: var(--terminal-text);
+            font-size: 0.95rem;
+        }
+
+        .stat-label i {
+            margin-right: 5px;
+        }
+
+        .stat-value-sm {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Large Animated Value (e.g., 3 Yrs) */
+        .stat-value {
+            font-size: 2rem; 
+            font-weight: 800;
+            color: var(--terminal-green); 
+            text-shadow: 0 0 8px rgba(126, 231, 135, 0.6);
+            line-height: 1;
+        }
+
+        /* Footer Section (Social Links) */
+        .about-footer {
+            border-top: 1px solid rgba(124, 58, 237, 0.2);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .social-links-pro {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links-pro .social-link {
+            display: flex;
+            align-items: center;
+            color: var(--terminal-text);
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links-pro .social-link:hover {
+            color: var(--terminal-light-blue); 
+            transform: translateY(-2px);
+        }
+
+        .social-links-pro .social-link i {
+            font-size: 1.5rem;
+            margin-right: 8px;
+            text-shadow: 0 0 5px rgba(0, 191, 255, 0.6); 
+        }
+
+        /* --- PORTFOLIO SECTION: FINAL UNIFIED STYLES --- */
+
+        /* 1. Portfolio Section (Main Wrapper) - Side Glow & Height Reduction */
+        #portfolio {
+            display: none;
+            background-color: var(--bg-secondary);
+            position: relative;
+
+            /* HEIGHT REDUCTION: Vertical padding kam kiya gaya */
+            padding: 6rem 0; 
+            z-index: 1; 
+        
+            /* Side Glow Effect */
+            box-shadow: 
+                -20px 0 30px -10px rgba(124, 58, 237, 0.2), /* Left side glow */
+                20px 0 30px -10px rgba(124, 58, 237, 0.2);  /* Right side glow */
+        }
+
+        /* Page-level Soft Glow Effect (Optional, can be removed if too subtle) */
+        #portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(124, 58, 237, 0.03) 0%, transparent 60%);
+            z-index: 0; 
+            pointer-events: none;
+        }
+
+        /* 2. Portfolio Heading Styling (New Stylish Head) */
+        /* Important: Make sure your HTML heading has class="section-heading" */
+        .section-heading {
+            color: var(--text-primary);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 3;
+            /* Neon Text Glow Effect */
+            text-shadow: 
+                0 0 7px rgba(124, 58, 237, 0.7), 
+                0 0 15px rgba(124, 58, 237, 0.4); 
+            color: var(--warp-purple); /* Assuming this is your purple variable */
+        }
+
+        /* Heading Underline Accent */
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--warp-purple);
+            box-shadow: 0 0 8px var(--warp-purple);
+            margin: 10px auto 30px auto; 
+            border-radius: 2px;
+        }
+
+        /* 3. Portfolio Container - HOME SECTION GLOW CARD (90% Width & Centering) */
+        .portfolio-container {
+            /* WIDTH INCREASED: 90% */
+            max-width: 90%; 
+            margin: 0 auto;
+            position: relative; 
+            z-index: 2;
+        
+            /* Home section jaisa bade card ka look */
+            background-color: var(--bg-primary); 
+            padding: 2rem; /* Reduced padding for reduced height */
+            border-radius: 1rem;
+
+            /* Bigger, Home-like Glow */
+            border: 1px solid rgba(124, 58, 237, 0.5); 
+            box-shadow: 
+                0 0 30px rgba(124, 58, 237, 0.4), 
+                0 0 50px rgba(124, 58, 237, 0.2); 
+
+            /* Grid layout */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem; 
+        }
+
+        /* 4. Individual Portfolio Item Card (Clean Look, Focus on Hover) */
+        .portfolio-item {
+            background-color: var(--bg-tertiary); 
+            border-radius: 0.75rem;
+            overflow: hidden;
+            /* Removed initial glow/border to highlight the container glow */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* 5. Hover Effect (Lifting aur Stronger Neon Glow) */
+        .portfolio-item:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 
+                        0 0 30px rgba(124, 58, 237, 0.6); 
+        }
+
+        /* 6. Image ki Styling (Height 200px maintain) */
+        .portfolio-image {
+            height: 200px; 
+            overflow: hidden;
+            position: relative;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+            filter: brightness(0.9); 
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.08); 
+            filter: brightness(1.0); 
+        }
+
+        /* 7. Content Area and Tags (Combined and Cleaned Up) */
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-content h3 {
+            color: var(--text-primary);
+            font-size: 1.45rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .portfolio-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem; /* Reduced for better spacing */
+        }
+
+        .tag {
+            background-color: rgba(124, 58, 237, 0.2);
+            color: var(--warp-purple);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            display: inline-block;
+        }
+
+        /* ------------------------------------------------------------------
+           #TOOLS SECTION - Unified Background (Home Section Style)
+           ------------------------------------------------------------------ */
+        #tools {
+            display: none; /* Section ko block level element rakha */
+
+            /* Background properties as discussed (Home style) */
+            background: linear-gradient(135deg, var(--bg-primary), rgba(21, 25, 51, 0.95)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(124, 58, 237, 0.15)" stroke-width="0.7"/></svg>');
+            background-color: var(--bg-primary); 
+            background-size: cover; 
+            background-repeat: no-repeat, repeat; 
+            background-attachment: fixed; 
+
+            position: relative;
+            padding: 6rem 0; 
+            width: 80%;
+            margin: 0 auto; /* Margin hataya */
+            max-width: 80%; /* Full width background ke liye */
+            overflow: hidden; /* Important */
+
+            box-shadow: 0 0 100px rgba(124, 58, 237, 0.2), 
+                        0 0 200px rgba(124, 58, 237, 0.1);
+        }
+
+        /* Security Tools Heading Glow */
+.glow-header-title {
+    font-size: 2.5rem; 
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-primary); 
+    
+    /* Purple Neon Glow Effect */
+    text-shadow: 
+        0 0 5px rgba(var(--warp-purple-rgb), 0.7), 
+        0 0 15px rgba(var(--warp-purple-rgb), 0.4);
+    
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Futuristic Separator Line */
+.section-separator {
+    width: 100px; 
+    height: 3px; 
+    background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--warp-purple) 50%, 
+                transparent 100%); 
+    margin: 1rem auto 2rem auto; /* Center alignment */
+    border-radius: 5px;
+    
+    /* Separator Glow */
+    box-shadow: 0 0 10px rgba(var(--warp-purple-rgb), 0.7); 
+}
+
+/* Subtitle */
+.section-subtitle {
+    text-align: center;
+    color: #38BDF8;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+
+}
+
+        /* ------------------------------------------------------------------
+           .TOOLS-CONTAINER - Layout
+           ------------------------------------------------------------------ */
+        .tools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2rem;
+            background: none; /* Background sirf #tools se aayega */
+        }
+
+        /* ------------------------------------------------------------------
+           TOOL CARD GLOW (Sides se Stronger Glow)
+           ------------------------------------------------------------------ */
+        .tool-card {
+            background-color: var(--bg-secondary); 
+            border-radius: 1rem; 
+            overflow: hidden;
+
+            /* Border ko transparent rakha takay sirf shadow dikhe */
+            border: 1px solid transparent; 
+
+            /* Strong initial glow around all sides */
+            box-shadow: 
+                /* Stronger Inner/Mid Glow */
+                0 0 10px rgba(var(--warp-purple-rgb), 0.7),      /* **More Intense Base Glow** */
+                0 0 30px rgba(var(--warp-purple-rgb), 0.3),      /* Wide Purple Haze */
+                0 8px 20px rgba(0, 0, 0, 0.4);                   /* Lift Shadow */
+        
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1; 
+        }
+
+        .tool-card:hover {
+            /* Lift up effect */
+            transform: translateY(-10px) scale(1.03); 
+
+            /* Intense Purple Hover Glow */
+            box-shadow: 
+                /* Hover par extremely bright glow */
+                0 0 20px rgba(var(--warp-purple-rgb), 0.9),      /* Strongest Inner Glow */
+                0 0 60px rgba(var(--warp-purple-rgb), 0.6),      /* Mid Intense Glow */
+                0 0 120px rgba(var(--warp-purple-rgb), 0.4),     /* Widest Haze */
+                0 20px 50px rgba(0, 0, 0, 0.8);                   /* Strongest Lift Shadow */
+
+            background-color: rgba(var(--warp-purple-rgb), 0.08); 
+            border-color: var(--warp-purple); 
+        }
+
+        /* Animated Border Effect (Use ismein optional hai, agar aapko pasand hai) */
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 35%, var(--warp-purple), transparent 65%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .tool-card:hover::before {
+            opacity: 0.2; 
+        }
+
+
+
+        /* Tool Header */
+        .tool-header {
+            /* Header background ko --bg-tertiary se set kiya */
+            background-color: var(--bg-tertiary); 
+            padding: 1.5rem; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Divider line ko aur zyada glowy aur visible banaya */
+            border-bottom: 1px solid rgba(var(--warp-purple-rgb), 0.5); /* Opacity increased */
+        }
+
+        /* Tool Title */
+        .tool-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem; 
+        }
+
+        /* Tool Icon - Enhanced Purple Glow */
+        .tool-title i {
+            color: var(--warp-purple);
+            font-size: 1.5rem; 
+            /* Icon par strong purple glow */
+            text-shadow: 
+                0 0 5px var(--warp-purple),
+                0 0 10px rgba(var(--warp-purple-rgb), 0.5); 
+        }
+
+        /* Tool Title H3 */
+        .tool-title h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        /* Tool Actions */
+        .tool-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Tool Action (Keeping for consistency, though buttons are now launch-direct) */
+        .tool-action {
+            background: none;
+            border: 1px solid var(--text-secondary);
+            border-radius: 50%;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        /* Tool Action Hover - Full Purple Accent */
+        .tool-action:hover {
+            color: var(--text-primary);
+            background-color: var(--warp-purple);
+            border-color: var(--warp-purple);
+            transform: scale(1.1);
+        }
+
+        /* Tool Body */
+        .tool-body {
+            padding: 1.5rem; 
+        }
+
+        /* Tool Description */
+        .tool-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem; 
+            line-height: 1.6;
+        }
+
+        /* Tool Style Options Container */
+        .tool-style-options {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0;
+        }
+
+        /* Style Option */
+        .style-option {
+            flex: 1;
+            padding: 1rem 0.5rem; 
+            /* Base style background ko thoda dark rakha */
+            background-color: rgba(var(--bg-tertiary-rgb), 0.8); 
+            border-radius: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            color: var(--text-secondary);
+        }
+
+        .style-option i {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .style-option p {
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* Style Option Hover - Purple Tint */
+        .style-option:hover {
+            background-color: rgba(var(--warp-purple-rgb), 0.15); /* Tint ko halka sa badhaya */
+            color: var(--text-primary);
+        }
+
+        /* Style Option Active - Stronger Purple Glow and Border */
+        .style-option.active {
+            background-color: rgba(var(--warp-purple-rgb), 0.25); /* Active background ko aur zyada prominent kiya */
+            border: 1px solid var(--warp-purple);
+            /* Active state glow ko aur zyada strong kiya */
+            box-shadow: 
+                0 0 10px rgba(var(--warp-purple-rgb), 0.6), 
+                0 0 20px rgba(var(--warp-purple-rgb), 0.3); 
+            color: var(--text-primary);
+        }
+
+        /* Contact Section */
+        #contact {
+            display: none;
+            background-color: var(--bg-secondary);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background-color: var(--bg-tertiary);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--warp-purple);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(124, 58, 237, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warp-purple);
+            font-size: 1.25rem;
+        }
+
+        .contact-details h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        /* --- Pro Footer Styling --- */
+        .pro-footer {
+            background-color: #0d0c22; /* Same color as the main block */
+            padding: 40px 0; /* Add top/bottom padding */
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separating line */
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px; /* Side padding */
+            display: flex; /* Enable flexbox for columns */
+            justify-content: space-between; /* Space out the columns */
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            color: #c0c0c0; /* Light text color */
+        }
+        
+        .footer-col {
+            flex: 1; /* Distribute space evenly */
+            min-width: 200px; /* Minimum width for columns */
+            padding: 10px;
+        }
+        
+        .footer-col h4, .footer-col h5 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-col ul li a {
+            color: #c0c0c0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #9370db; /* Your purple hover color */
+        }
+        
+        /* Social Icons Styling */
+        .social-icons a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #9370db; /* Your purple hover color */
+        }
+
+        /* Tool Pages */
+        .tool-page {
+            display: none;
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-page.active {
+            display: block;
+        }
+
+        .tool-page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .tool-page-title {
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-secondary);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--bg-tertiary);
+        }
+
+        /* Simple Hash Tool */
+        .hash-tool-container {
+            background-color: var(--bg-secondary);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hash-tool-input {
+            margin-bottom: 1.5rem;
+        }
+
+        .hash-tool-input label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .hash-tool-input input,
+        .hash-tool-input textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-tertiary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .hash-tool-input textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .hash-tool-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hash-algorithm {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .hash-algorithm select {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--bg-tertiary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-family: inherit;
+        }
+
+        .hash-tool-output {
+            background-color: var(--bg-tertiary);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .hash-tool-output.active {
+            display: block;
+        }
+
+        .hash-result {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hash-result-label {
+            font-weight: 500;
+            color: var(--text-secondary);
+            min-width: 100px;
+        }
+
+        .hash-result-value {
+            flex: 1;
+            padding: 0.5rem;
+            background-color: var(--bg-primary);
+            border-radius: 0.25rem;
+            font-family: 'Consolas', 'Monaco', monospace;
+            word-break: break-all;
+            min-width: 200px;
+        }
+
+        .copy-button {
+            padding: 0.5rem;
+            background-color: var(--warp-purple);
+            border: none;
+            border-radius: 0.25rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Terminal Style Tool */
+        .terminal-tool-container {
+            background-color: var(--terminal-bg);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+
+        .terminal-tool-header {
+            background-color: #161b22;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .terminal-tool-body {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.875rem;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .terminal-tool-body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .terminal-input-container {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .terminal-prompt {
+            color: var(--terminal-green);
+            margin-right: 0.5rem;
+        }
+
+        .terminal-input {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--terminal-text);
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.875rem;
+            outline: none;
+        }
+
+        /* Coming Soon Page */
+        .coming-soon-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            text-align: center;
+        }
+
+        .coming-soon-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--warp-purple);
+        }
+
+        .coming-soon-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Animations */
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; box-shadow: 0 0 8px var(--terminal-green); }
+            100% { opacity: 0.5; }
+        }
+
+        /* Logo Pulse Animation Keyframes */
+        @keyframes logoPulse {
+            0% { 
+                filter: brightness(1); 
+                text-shadow: 0 0 5px var(--logo-blue), 0 0 10px rgba(0, 123, 255, 0.2); 
+            }
+            50% { 
+                filter: brightness(1.5); /* Thoda sa chamakdar */
+                text-shadow: 0 0 15px var(--logo-blue), 0 0 30px rgba(0, 123, 255, 0.7); 
+            }
+            100% { 
+                filter: brightness(1); 
+                text-shadow: 0 0 5px var(--logo-blue), 0 0 10px rgba(0, 123, 255, 0.2); 
+            }
+        }
+
+        /* Keyframes for the Blinking Cursor */
+        @keyframes blink {
+            from, to {
+                background-color: transparent;
+                box-shadow: none;
+            }
+            50% {
+                background-color: var(--terminal-green, #7ee787); /* Fallback color for blink */
+                box-shadow: 0 0 5px var(--terminal-green, #7ee787); /* Cursor par halka glow */
+            }
+        }
+
+                @keyframes terminalFloat {
+            0% {
+                transform: translate3d(0, 0, 0) rotateX(1deg) rotateY(-1deg);
+            }
+            50% {
+                transform: translate3d(10px, 15px, 0) rotateX(0deg) rotateY(1deg);
+            }
+            100% {
+                transform: translate3d(-5px, 5px, 0) rotateX(1.5deg) rotateY(0deg);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 90%;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            border-left: 4px solid var(--success);
+        }
+
+        .toast.error {
+            border-left: 4px solid var(--danger);
+        }
+
+        .toast i {
+            font-size: 1.25rem;
+        }
+
+        .toast.success i {
+            color: var(--success);
+        }
+
+        .toast.error i {
+            color: var(--danger);
+        }
+
+        /* Responsive Design (Updated for Pro Look) */
+
+         /* Media Query (Mobile Styling ke liye) - Agar yeh missing tha toh zaroor add karein */
+        @media (max-width: 768px) {
+            .nav-links {
+                /* Mobile menu ki styling */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: var(--bg-primary); 
+                border-top: 1px solid var(--bg-tertiary);
+                padding: 10px 0;
+                display: none; /* Default hidden */
+                z-index: 999;
+            }
+        
+            .nav-links.open {
+                display: flex; /* JavaScript se open hone par show */
+            }
+        
+            .nav-links li {
+                text-align: center;
+                width: 100%;
+            }
+        
+            .nav-links a {
+                display: block;
+                padding: 10px 0;
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .nav-links a.active::after {
+                /* Mobile menu mein underline hata di, ya center mein choti kar di */
+                content: none; 
+            }
+        
+            .menu-toggle {
+                display: block; /* Mobile par show */
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .portfolio-container {
+                max-width: 95%; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-container {
+                max-width: 95%;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            .portfolio-image {
+                height: 160px; 
+            }
+            .section-heading {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .hero-content {
+                max-width: 1200px;
+                gap: 2.5rem;
+            }
+
+            .hero-terminal {
+                width: 115%;
+                margin-left: -7.5%;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hero-content {
+                max-width: 1000px;
+                gap: 2rem;
+            }
+
+            .hero-terminal {
+                width: 110%;
+                margin-left: -5%;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 800px;
+            }
+
+            .hero-terminal {
+                height: 400px;
+                width: 100%;
+                margin-left: 0;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            /* Removed obsolete .about-container rule */
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .terminal-tool-container {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 3%;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 14, 39, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+        
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 3%;
+            }
+
+            .hero-terminal {
+                height: 350px;
+                max-width: 100%;
+            }
+
+            .terminal-tool-container {
+                height: 400px;
+            }
+
+            /* NEW: About section's 2-column grid collapses to 1 column on mobile */
+            .data-segments-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        
+            .tool-page-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hash-result {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hash-result-label {
+                margin-bottom: 0.5rem;
+            }
+
+            .coming-soon-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 2rem 3%;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-terminal {
+                height: 300px;
+            }
+
+            .terminal-tool-container {
+                height: 350px;
+            }
+
+            .terminal-body {
+                font-size: 0.75rem;
+            }
+
+            .tool-style-options {
+                flex-direction: column;
+            }
+
+            .hash-tool-options {
+                flex-direction: column;
+            }
+
+            /* Removed obsolete .about-info rule */
+            /* Removed obsolete .contact-info rule */
+        
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .coming-soon-title {
+                font-size: 2rem;
+            }
+
+            .coming-soon-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+    <a href="#" class="logo" onclick="showSection('home')">
+        <i class="fas fa-terminal"></i>
+        Muhammad Hamza
+    </a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="nav-link active" onclick="showSection('home')">Home</a></li>
+        <li><a href="#" class="nav-link" id="nav-about-link" onclick="showSection('about')">About</a></li> 
+        <li><a href="#" class="nav-link" onclick="showSection('portfolio')">Portfolio</a></li>
+        <li><a href="#" class="nav-link" onclick="showSection('contact')">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section active">
+        <div class="hero-bg"></div>
+        <div class="purple-shape shape-1"></div>
+        <div class="purple-shape shape-2"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Cybersecurity Enthusiast & Developer</h1>
+                <p>Hello! I'm Muhammad Hamza, a passionate Cyber Security professional specializing in "Penetration Testing, Infrastructure Security", and building "impactful security tool" with Python and JavaScript.</p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="showSection('portfolio')" class="btn btn-primary"><i class="fas fa-arrow-right"></i>View My Work</a>
+                    <a href="#" onclick="showSection('contact')" class="btn btn-secondary"><i class="fas fa-envelope"></i>Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-button close"></div>
+                        <div class="terminal-button minimize"></div>
+                        <div class="terminal-button maximize"></div>
+                    </div>
+                    <div class="terminal-title">Passploit: ~</div>
+                </div>
+                <div class="terminal-body" id="home-terminal">
+                    <!-- Terminal content will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- About Section -->
+       <section id="about" class="section">
+    
+            <div class="hack-console-hero-wrapper"> 
+                <div class="hack-console-header">
+                    <div class="hack-console-buttons">
+                    <div class="hack-console-button close"></div>
+                    <div class="hack-console-button minimize"></div>
+                     <div class="hack-console-button maximize"></div>
+            </div>
+
+            <div class="hack-console-title">
+                PassPloit v3.1
+            </div>
+
+            </div>
+                <div class="hack-console-body" id="hero-terminal-output">
+                </div>
+            </div>
+
+            <div id="terminal-animation-wrapper">
+                <div class="data-card-container"> 
+
+                <div class="purple-shape shape-1"></div>
+                <div class="purple-shape shape-2"></div>
+                <div class="purple-shape shape-3"></div>
+
+                <div id="content-to-type"> 
+                
+                <div class="about-header">
+                    <h2 class="section-title">
+                        <span class="terminal-prompt">>></span> MUHAMMAD_HAMZA.<span class="output-star">dat</span>
+                    </h2>
+                    <div class="status-indicator online">
+                        <span class="dot"></span> <span class="output-plus">ACTIVE & SECURE</span>
+                    </div>
+                </div>
+                </div>
+                 <div class="data-segments-wrapper">
+                    <div class="data-segment segment-bio">
+                        <h3 class="segment-title">CORE SPECIALIZATION</h3>
+                        <p>
+                            I am a dedicated "Cybersecurity Specialist" with a passion for building secure digital environments. My primary focus is on "proactive defense"—meaning I work to find and fix security weaknesses before hackers can exploit them. This mission is driven by a deep commitment to ensuring data integrity and system reliability for everyone.
+                        </p>
+                        <p>
+                            To automate and enhance my security work, I leverage **Python development**. I use coding as my key tool to engineer custom security scripts and programs. These bespoke solutions allow me to move beyond standard checks and tackle complex, unique challenges efficiently, ensuring a thorough security analysis.
+                        </p>
+                        <p>
+                            The best example of this development work is my signature project, **PassPloit**. This is a comprehensive password security tool that goes beyond basic strength meters. PassPloit is designed to **simulate genuine, real-world attack scenarios**. By running these advanced, simulated breaches, the tool provides users and organizations with an honest, realistic assessment of their defenses, clearly identifying where immediate security reinforcement is needed.
+                        </p>
+                        <h3 class="segment-title" style="margin-top: 2rem;">CURRENT OBJECTIVE</h3>
+                        <p>Seeking challenging roles to leverage my cybersecurity skills in a dynamic environment, contributing to advanced threat detection and defense strategies.</p>
+                    </div>
+
+                    <div class="segment-secondary">
+                        <h3 class="segment-title">SKILL MATRIX</h3>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-shield-alt output-plus"></i> Penetration Testing:</span>
+                            <span class="stat-value-sm">Advanced</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fab fa-python output-plus"></i> Python Proficiency:</span>
+                            <span class="stat-value-sm">Expert</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-server output-plus"></i> Infrastructure Security:</span>
+                            <span class="stat-value-sm">High</span>
+                    </div>
+
+                    <div class="data-segment segment-stats">
+                        <h3 class="segment-title">SYSTEM INFO / STATS</h3>
+                    
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-map-marker-alt output-star"></i> Location:</span>
+                            <span class="stat-value-sm">Karachi, Pakistan</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-graduation-cap output-star"></i> Education:</span>
+                            <span class="stat-value-sm">BS Computer Science</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-briefcase output-star"></i> Experience:</span>
+                            <span class="stat-value stat-value-lg" data-target="3">0</span><span class="output-plus">+ Yrs</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-project-diagram output-star"></i> Major Projects:</span>
+                            <span class="stat-value stat-value-lg" data-target="8">0</span><span class="output-plus">+</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label"><i class="fas fa-language output-star"></i> Languages:</span>
+                            <span class="stat-value-sm">English, Urdu</span>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="about-footer">
+                    <h3 class="segment-title output-plus">CONNECT :: ME</h3>
+                    <div class="social-links-pro">
+                        <a href="https://github.com/Muhammadhamza-cyber/Passploit" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i> <span class="output-star">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muhammad-hamza-b7464538a/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i> <span class="output-star">LinkedIn</span>
+                        </a>
+                        <a href="mailto:Muhammadhamzahasan.202@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i> <span class="output-star">Email</span>
+                        </a>
+                    </div>
+                </div>
+            
+            </div>
+         </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="purple-shape shape-1"></div>
+        <div class="purple-shape shape-2"></div>
+        <h2 class="section-heading">Portfolio</h2>
+       <p class="section-subtitle">
+            <p class="section-subtitle">
+                <span id="portfolio-subtitle-text"></span>
+            </p>
+        
+        <div class="portfolio-container">
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://raw.githubusercontent.com/Muhammadhamza-cyber/images/main/image4.png" alt="Skill Assessment">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Skill Assessment</h3>
+                    <p>Validate your technical knowledge through interactive quizzes across key industry tools. Proof of proficiency.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">KnowledgeChecker</span>
+                        <span class="tag">Proficiency </span>
+                        <span class="tag">InteractiveQuizzes</span>
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="openComingSoon('Skill Assessment')"><i class="fas fa-chart-bar"></i>Try Tools</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://raw.githubusercontent.com/Muhammadhamza-cyber/images/main/image%206.png" alt="Developer Utilities">
+                </div>
+                <div class="portfolio-content">
+                    <h3>Developer Utilities</h3>
+                    <p>Showcasing specialized tools, like the custom Code Analyzer, built to streamline workflows. These utilities demonstrate core expertise in efficient and performance-focused technical solutions.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">CustomTools</span>
+                        <span class="tag">CodeAnalyzer</span>
+                        <span class="tag">StaticAnalysis</span>
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="openComingSoon('Developer Utilities')"><i class="fas fa-code"></i>View Project</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-item">
+                <div class="portfolio-image">
+                    <img src="https://raw.githubusercontent.com/Muhammadhamza-cyber/images/main/image1.png" alt="PassPloit - Password Security Tool">
+                </div>
+                <div class="portfolio-content">
+                    <h3>PassPloit - Password Security Tool</h3>
+                    <p>A comprehensive password security toolkit that simulates real-world attack scenarios, analyzes password strength, and provides educational insights into cybersecurity vulnerabilities.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Security Tools</span>
+                        <span class="tag">Cybersecurity</span>
+                    </div>
+                    <a href="#" class="btn btn-primary" onclick="showSection('tools')"><i class="fas fa-terminal"></i>Try PassPloit Tools</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section">
+    <div class="purple-shape shape-1"></div>
+    <div class="purple-shape shape-2"></div>
+    <div class="purple-shape shape-3"></div>
+    
+    <h2 class="glow-header-title">SECURITY TOOLS 🛡️</h2>
+    
+    <div class="section-separator"></div> 
+    
+    <p class="section-subtitle">Start your analysis now. Secure the digital landscape.</p>
+    
+    <div class="tools-container">
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-title">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Password Strength Analyzer</h3>
+                </div>
+                <div class="tool-actions">
+                </div>
+            </div>
+            <div class="tool-body">
+                <p class="tool-description">Analyze password strength, calculate crack time, and provide suggestions for improvement. Stay secure.</p>
+                <div class="tool-style-options">
+                    <div class="style-option active" onclick="setToolStyle('password-analyzer', 'terminal')">
+                        <i class="fas fa-terminal"></i>
+                        <p>Terminal Style</p>
+                    </div>
+                    <div class="style-option" onclick="setToolStyle('password-analyzer', 'simple')">
+                        <i class="fas fa-window-maximize"></i>
+                        <p>Simple Style</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-title">
+                    <i class="fas fa-lock"></i>
+                    <h3>Hash Generator</h3>
+                </div>
+                <div class="tool-actions">
+                </div>
+            </div>
+            <div class="tool-body">
+                <p class="tool-description">Generate cryptographic hashes for text using various algorithms like MD5, SHA1, and SHA256 efficiently.</p>
+                <div class="tool-style-options">
+                    <div class="style-option active" onclick="setToolStyle('hash-generator', 'terminal')">
+                        <i class="fas fa-terminal"></i>
+                        <p>Terminal Style</p>
+                    </div>
+                    <div class="style-option" onclick="setToolStyle('hash-generator', 'simple')">
+                        <i class="fas fa-window-maximize"></i>
+                        <p>Simple Style</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-title">
+                    <i class="fas fa-key"></i>
+                    <h3>Hash Cracker</h3>
+                </div>
+                <div class="tool-actions">
+                </div>
+            </div>
+            <div class="tool-body">
+                <p class="tool-description">Attempt to crack various hash types using a high-speed wordlist and brute-force approach.</p>
+                <div class="tool-style-options">
+                    <div class="style-option active" onclick="setToolStyle('hash-cracker', 'terminal')">
+                        <i class="fas fa-terminal"></i>
+                        <p>Terminal Style</p>
+                    </div>
+                    <div class="style-option" onclick="setToolStyle('hash-cracker', 'simple')">
+                        <i class="fas fa-window-maximize"></i>
+                        <p>Simple Style</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-card">
+            <div class="tool-header">
+                <div class="tool-title">
+                    <i class="fas fa-lock"></i>
+                    <h3>Cryptography Tools</h3>
+                </div>
+                <div class="tool-actions">
+                </div>
+            </div>
+            <div class="tool-body">
+                <p class="tool-description">A comprehensive cryptography toolkit for encryption, decryption, and secure key management.</p>
+                <div class="tool-style-options">
+                    <div class="style-option active" onclick="setToolStyle('crypto-tools', 'terminal')">
+                        <i class="fas fa-terminal"></i>
+                        <p>Terminal Style</p>
+                    </div>
+                    <div class="style-option" onclick="setToolStyle('crypto-tools', 'simple')">
+                        <i class="fas fa-window-maximize"></i>
+                        <p>Simple Style</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="purple-shape shape-1"></div>
+        <div class="purple-shape shape-2"></div>
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">Get in touch for collaborations, projects, or just to say hello</p>
+        
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Karachi, Pakistan</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>muhammadhamzahasan.202@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pro-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4 class="logo-text"> > Muhammad Hamza</h4>
+            <h5>Quick Links</h5>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h5>Connect</h5>
+            <div class="social-icons">
+                <a href="https://github.com/Muhammadhamza-cyber/Passploit"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-hamza-b7464538a/"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:Muhammadhamzahasan.202@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h5>Copyright/Legal</h5>
+            <p class="copyright">
+                © 2025 Muhammad Hamza. All rights reserved.<br>
+                Built with <i class="fas fa-heart"></i> and React
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Message sent successfully!</span>
+    </div>
+
+    <!-- Tool Pages -->
+    <!-- Password Analyzer Tool Page -->
+    <div id="password-analyzer-tool" class="tool-page">
+        <div class="tool-page-header">
+            <h1 class="tool-page-title">Password Strength Analyzer</h1>
+            <a href="#" class="back-button" onclick="closeTool()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Tools
+            </a>
+        </div>
+        
+        <!-- Terminal Style -->
+        <div id="password-analyzer-terminal" class="terminal-tool-container">
+            <div class="terminal-tool-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">passploit</div>
+            </div>
+            <div class="terminal-tool-body" id="password-analyzer-terminal-body">
+                <!-- Terminal content will be added dynamically -->
+            </div>
+        </div>
+        
+        <!-- Simple Style -->
+        <div id="password-analyzer-simple" class="hash-tool-container" style="display: none;">
+            <div class="hash-tool-input">
+                <label for="password-input">Enter Password</label>
+                <input type="password" id="password-input" placeholder="Enter a password to analyze...">
+            </div>
+            
+            <button class="btn btn-primary" onclick="analyzePassword()">
+                <i class="fas fa-shield-alt"></i>
+                Analyze Password
+            </button>
+            
+            <div class="hash-tool-output" id="password-analyzer-output">
+                <div class="hash-result">
+                    <div class="hash-result-label">Password:</div>
+                    <div class="hash-result-value" id="analyzed-password"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Strength:</div>
+                    <div class="hash-result-value" id="password-strength"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Crack Time:</div>
+                    <div class="hash-result-value" id="crack-time"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Suggestions:</div>
+                    <div class="hash-result-value" id="password-suggestions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hash Generator Tool Page -->
+    <div id="hash-generator-tool" class="tool-page">
+        <div class="tool-page-header">
+            <h1 class="tool-page-title">Hash Generator</h1>
+            <a href="#" class="back-button" onclick="closeTool()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Tools
+            </a>
+        </div>
+        
+        <!-- Terminal Style -->
+        <div id="hash-generator-terminal" class="terminal-tool-container">
+            <div class="terminal-tool-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">passploit</div>
+            </div>
+            <div class="terminal-tool-body" id="hash-generator-terminal-body">
+                <!-- Terminal content will be added dynamically -->
+            </div>
+        </div>
+        
+        <!-- Simple Style -->
+        <div id="hash-generator-simple" class="hash-tool-container" style="display: none;">
+            <div class="hash-tool-input">
+                <label for="text-input">Enter Text</label>
+                <textarea id="text-input" placeholder="Enter text to hash..."></textarea>
+            </div>
+            
+            <div class="hash-tool-options">
+                <div class="hash-algorithm">
+                    <label for="hash-algorithm-select">Algorithm</label>
+                    <select id="hash-algorithm-select">
+                        <option value="md5">MD5</option>
+                        <option value="sha1">SHA1</option>
+                        <option value="sha256" selected>SHA256</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="generateHash()">
+                <i class="fas fa-lock"></i>
+                Generate Hash
+            </button>
+            
+            <div class="hash-tool-output" id="hash-generator-output">
+                <div class="hash-result">
+                    <div class="hash-result-label">Input Text:</div>
+                    <div class="hash-result-value" id="input-text"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Algorithm:</div>
+                    <div class="hash-result-value" id="selected-algorithm"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Hash:</div>
+                    <div class="hash-result-value" id="generated-hash"></div>
+                    <button class="copy-button" onclick="copyToClipboard('generated-hash')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hash Cracker Tool Page -->
+    <div id="hash-cracker-tool" class="tool-page">
+        <div class="tool-page-header">
+            <h1 class="tool-page-title">Hash Cracker</h1>
+            <a href="#" class="back-button" onclick="closeTool()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Tools
+            </a>
+        </div>
+        
+        <!-- Terminal Style -->
+        <div id="hash-cracker-terminal" class="terminal-tool-container">
+            <div class="terminal-tool-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">passploit</div>
+            </div>
+            <div class="terminal-tool-body" id="hash-cracker-terminal-body">
+                <!-- Terminal content will be added dynamically -->
+            </div>
+        </div>
+        
+        <!-- Simple Style -->
+        <div id="hash-cracker-simple" class="hash-tool-container" style="display: none;">
+            <div class="hash-tool-input">
+                <label for="hash-input">Enter Hash</label>
+                <input type="text" id="hash-input" placeholder="Enter a hash to crack...">
+            </div>
+            
+            <div class="hash-tool-options">
+                <div class="hash-algorithm">
+                    <label for="crack-algorithm-select">Hash Type</label>
+                    <select id="crack-algorithm-select">
+                        <option value="md5">MD5</option>
+                        <option value="sha1">SHA1</option>
+                        <option value="sha256">SHA256</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="crackHash()">
+                <i class="fas fa-key"></i>
+                Crack Hash
+            </button>
+            
+            <div class="hash-tool-output" id="hash-cracker-output">
+                <div class="hash-result">
+                    <div class="hash-result-label">Input Hash:</div>
+                    <div class="hash-result-value" id="input-hash"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Hash Type:</div>
+                    <div class="hash-result-value" id="crack-algorithm"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Status:</div>
+                    <div class="hash-result-value" id="crack-status"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Result:</div>
+                    <div class="hash-result-value" id="crack-result"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crypto Tools Page -->
+    <div id="crypto-tools-tool" class="tool-page">
+        <div class="tool-page-header">
+            <h1 class="tool-page-title">Cryptography Tools</h1>
+            <a href="#" class="back-button" onclick="closeTool()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Tools
+            </a>
+        </div>
+        
+        <!-- Terminal Style -->
+        <div id="crypto-tools-terminal" class="terminal-tool-container">
+            <div class="terminal-tool-header">
+                <div class="terminal-buttons">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                </div>
+                <div class="terminal-title">passploit</div>
+            </div>
+            <div class="terminal-tool-body" id="crypto-tools-terminal-body">
+                <!-- Terminal content will be added dynamically -->
+            </div>
+        </div>
+        
+        <!-- Simple Style -->
+        <div id="crypto-tools-simple" class="hash-tool-container" style="display: none;">
+            <div class="hash-tool-input">
+                <label for="crypto-input">Enter Text</label>
+                <textarea id="crypto-input" placeholder="Enter text to encrypt/decrypt..."></textarea>
+            </div>
+            
+            <div class="hash-tool-options">
+                <div class="hash-algorithm">
+                    <label for="crypto-algorithm-select">Algorithm</label>
+                    <select id="crypto-algorithm-select">
+                        <option value="aes">AES</option>
+                        <option value="rsa">RSA</option>
+                        <option value="base64">Base64</option>
+                    </select>
+                </div>
+                
+                <div class="hash-algorithm">
+                    <label for="crypto-action-select">Action</label>
+                    <select id="crypto-action-select">
+                        <option value="encrypt">Encrypt</option>
+                        <option value="decrypt">Decrypt</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="processCrypto()">
+                <i class="fas fa-lock"></i>
+                Process
+            </button>
+            
+            <div class="hash-tool-output" id="crypto-tools-output">
+                <div class="hash-result">
+                    <div class="hash-result-label">Input Text:</div>
+                    <div class="hash-result-value" id="crypto-input-text"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Algorithm:</div>
+                    <div class="hash-result-value" id="crypto-algorithm"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Action:</div>
+                    <div class="hash-result-value" id="crypto-action"></div>
+                </div>
+                
+                <div class="hash-result">
+                    <div class="hash-result-label">Result:</div>
+                    <div class="hash-result-value" id="crypto-result"></div>
+                    <button class="copy-button" onclick="copyToClipboard('crypto-result')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon Page -->
+    <div id="coming-soon-page" class="tool-page">
+        <div class="tool-page-header">
+            <h1 class="tool-page-title">Coming Soon</h1>
+            <a href="#" class="back-button" onclick="closeComingSoon()">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+        </div>
+        
+        <div class="coming-soon-container">
+            <div class="coming-soon-title">Coming Soon</div>
+            <div class="coming-soon-subtitle">This project is currently under development. Check back later for updates!</div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Show Section
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none';
+            });
+            
+            // Hide all tool pages
+            const toolPages = document.querySelectorAll('.tool-page');
+            toolPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show footer when not on a tool page
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.display = 'block';
+            }
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
+                
+                // Reset display property based on section type
+                if (sectionId === 'home') {
+                    selectedSection.style.display = 'flex';
+                } else {
+                    selectedSection.style.display = 'block';
+                }
+            }
+            
+            // Update active nav link
+            const navItems = document.querySelectorAll('.nav-link');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('onclick').includes(sectionId)) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Start terminal animation if home section
+            if (sectionId === 'home') {
+                startTerminalAnimation();
+            }
+        }
+        
+        // Open Tool
+        function openTool(toolId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none';
+            });
+            
+            // Hide all tool pages
+            const toolPages = document.querySelectorAll('.tool-page');
+            toolPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Hide footer when tool is open
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.display = 'none';
+            }
+            
+            // Show selected tool page
+            const selectedTool = document.getElementById(`${toolId}-tool`);
+            if (selectedTool) {
+                selectedTool.classList.add('active');
+            }
+            
+            // Update active nav link
+            const navItems = document.querySelectorAll('.nav-link');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Close mobile menu if open
+            navLinks.classList.remove('active');
+            
+            // Initialize terminal for the tool
+            if (toolId === 'password-analyzer') {
+                initPasswordAnalyzerTerminal();
+            } else if (toolId === 'hash-generator') {
+                initHashGeneratorTerminal();
+            } else if (toolId === 'hash-cracker') {
+                initHashCrackerTerminal();
+            } else if (toolId === 'crypto-tools') {
+                initCryptoToolsTerminal();
+            }
+        }
+        
+        // Close Tool
+        function closeTool() {
+            // Hide all tool pages
+            const toolPages = document.querySelectorAll('.tool-page');
+            toolPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show footer when tool is closed
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.display = 'block';
+            }
+            
+            // Show tools section
+            showSection('tools');
+        }
+        
+        // Open Coming Soon
+        function openComingSoon(projectId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none';
+            });
+            
+            // Hide all tool pages
+            const toolPages = document.querySelectorAll('.tool-page');
+            toolPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Hide footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.display = 'none';
+            }
+            
+            // Show coming soon page
+            const comingSoonPage = document.getElementById('coming-soon-page');
+            if (comingSoonPage) {
+                comingSoonPage.classList.add('active');
+            }
+        }
+        
+        // Close Coming Soon
+        function closeComingSoon() {
+            // Hide all tool pages
+            const toolPages = document.querySelectorAll('.tool-page');
+            toolPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show footer
+            const footer = document.querySelector('footer');
+            if (footer) {
+                footer.style.display = 'block';
+            }
+            
+            // Show portfolio section
+            showSection('portfolio');
+        }
+        
+       // Set Tool Style AND Launch Tool
+function setToolStyle(toolId, style) {
+    // 1. **Load/Style Update Logic:** Agar aapki tools same page par hain, toh yeh theek hai.
+    // NOTE: Yeh assume karta hai ki aapke paas HTML mein aise elements hain: 
+    // <div id="password-analyzer-terminal">...</div>
+    // <div id="password-analyzer-simple">...</div>
+    const terminalStyleDiv = document.getElementById(`${toolId}-terminal`);
+    const simpleStyleDiv = document.getElementById(`${toolId}-simple`);
+    
+    // Safety check
+    if (terminalStyleDiv && simpleStyleDiv) {
+        if (style === 'terminal') {
+            terminalStyleDiv.style.display = 'flex';
+            simpleStyleDiv.style.display = 'none';
+        } else {
+            terminalStyleDiv.style.display = 'none';
+            simpleStyleDiv.style.display = 'block';
+        }
+    }
+    
+    // 2. **Update Active Style Option (Better Logic):**
+    // Hum direct .tool-card ko target karenge, bina tool-action button ke.
+    const toolCard = document.querySelector(`#tools .tool-card:has(.tool-style-options [onclick*="'${toolId}'])`);
+    
+    if (toolCard) {
+        const styleOptions = toolCard.querySelectorAll('.style-option');
+        styleOptions.forEach(option => {
+            option.classList.remove('active');
+            
+            // Check karein ki option ka 'onclick' attribute current 'style' ko include karta hai ya nahi
+            if (option.getAttribute('onclick').includes(`'${style}'`)) {
+                option.classList.add('active');
+            }
+        });
+    }
+    
+    // 3. **LAUNCH TOOL (The Missing Piece):**
+    // Is line ko add karne se tool turant open ho jayega.
+    // openTool function ko define karna zaroori hai.
+    openTool(toolId, style); 
+}
+        
+        // =========================================================================
+        // === GLOBAL TIMER MANAGEMENT (The FIX) ===================================
+        // =========================================================================
+        let terminalTimers = [];
+            
+        function clearAllTerminalTimers() {
+            terminalTimers.forEach(id => clearTimeout(id));
+            terminalTimers.forEach(id => clearInterval(id));
+            terminalTimers = []; 
+            // console.log("DEBUG: All previous terminal timers cleared.");
+        }
+
+        function setTerminalTimeout(func, delay) {
+            const id = setTimeout(func, delay);
+            terminalTimers.push(id);
+            return id;
+        }
+
+        function setTerminalInterval(func, delay) {
+            const id = setInterval(func, delay);
+            terminalTimers.push(id);
+            return id;
+        }
+
+        // =========================================================================
+        // === 1. HELPER FUNCTIONS =================================================
+        // =========================================================================
+
+        function calculateColor(index, total, startColor, endColor) {
+            // CSS variable for consistency
+            return 'var(--logo-blue)'; 
+        }
+
+        function formatTerminalOutput(line) {
+            const regex = /^(\[\*\]|\[\+\]|\[-\]|\[\!\]|\[\?\])/;
+
+            // Bolding text wrapped in double asterisks
+            line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+            const finalMatch = line.match(regex);
+        
+            if (finalMatch) {
+                const prefix = finalMatch[1];
+                const text = line.substring(prefix.length); 
+                let className = '';
+            
+                if (prefix === '[+]') {
+                    className = 'output-plus';
+                } else if (prefix === '[-]' || prefix === '[!]') {
+                    className = 'output-minus';
+                } else if (prefix === '[*]' || prefix === '[?]') {
+                    className = 'output-star';
+                }
+            
+                return `<span class="${className}">${prefix}</span>${text}`;
+            }
+
+            return line;
+        }
+
+        // =========================================================================
+        // === 2. PROGRESS BAR SIMULATION (NEW FEATURE) ============================
+        // =========================================================================
+
+        function simulateProgressBar(terminalBody, callback) {
+            const lineDiv = document.createElement('div');
+            lineDiv.className = 'terminal-output';
+            lineDiv.style.fontSize = '16px'; 
+            terminalBody.appendChild(lineDiv);
+
+            let progress = 0;
+            const totalSteps = 100;
+            const updateDelay = 30; // Fast update rate
+        
+            const interval = setTerminalInterval(() => {
+                if (progress >= totalSteps) {
+                    clearInterval(interval);
+                    terminalTimers = terminalTimers.filter(id => id !== interval); 
+                    lineDiv.remove(); // Progress bar ko hata do
+                    callback();
+                    return;
+                }
+            
+                progress += 5; // Har step mein 5% badhao
+
+                const progressBarLength = 20;
+                const filled = Math.round((progress / 100) * progressBarLength);
+                const empty = progressBarLength - filled;
+
+                const bar = `[${'#'.repeat(filled)}${'-'.repeat(empty)}]`;
+
+                // Output text mein progress aur time dikhao
+                lineDiv.innerHTML = `<span class="output-star">[*]</span> Analyzing... ${bar} ${progress}%`;
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+
+            }, updateDelay);
+        }
+
+
+        // -------------------------------------------------------------------------
+        // --- 3. PassPloit Logo Generator (Z-Level Logo & Animation) ---
+        // -------------------------------------------------------------------------
+        function generatePassPloitLogo(terminalBody, callback) {
+            const logoBlue = 'var(--logo-blue)'; 
+
+            // --- Line Containers (Same) ---
+            const line1Container = document.createElement('div');
+            line1Container.className = 'terminal-output';
+            line1Container.style.fontSize = '18px';
+            line1Container.style.color = logoBlue; 
+            terminalBody.appendChild(line1Container);
+        
+            const line2Container = document.createElement('div');
+            line2Container.className = 'terminal-output';
+            line2Container.style.marginTop = '10px'; 
+            line2Container.style.textAlign = 'left'; 
+            terminalBody.appendChild(line2Container); // <-- Yeh container pulse effect lega
+        
+            const line3Container = document.createElement('div');
+            line3Container.className = 'terminal-output';
+            line3Container.style.marginTop = '10px'; 
+            line3Container.style.fontSize = '18px';
+            line3Container.style.color = logoBlue; 
+            terminalBody.appendChild(line3Container);
+        
+            // --- Data (Same) ---
+            const line1Words = 'Loading PassPloit v4.1-dev...'.split(' ');
+            const line2Word = 'Passploit'; 
+            const line3Words = ['>>', 'PASSPLOIT', '<<', '[SYSTEM', 'READY]'];
+            const statusLines = [
+                '[+] auxiliary/analyze/password_strength loaded',
+                '[+] Type "set PASSWORD <password>" to set a password to analyze',
+                '[+] Type "run" to execute the module'
+            ];
+            const startColor = { r: 0, g: 123, b: 255 }; 
+            const endColor = { r: 0, g: 123, b: 255 }; 
+                
+            // --- Timing (Same) ---
+            const delayL1Word = 100;
+            const delayL2Char = 50;
+            const delayL3Word = 100;
+            const STATUS_LINE_DELAY = 300;
+                
+            let L1_END_TIME = line1Words.length * delayL1Word;
+            const L2_START_TIME = L1_END_TIME + 200; 
+            const L2_END_TIME = L2_START_TIME + (line2Word.length * delayL2Char);
+            const L3_START_TIME = L2_END_TIME + 300; 
+            const L3_END_TIME = L3_START_TIME + (line3Words.length * delayL3Word);
+            const STATUS_START_TIME = L3_END_TIME + 500; 
+            const TOTAL_ANIMATION_TIME = STATUS_START_TIME + (statusLines.length * STATUS_LINE_DELAY) + 500;
+                
+            // --- Animate Line 1 (Word-by-word) ---
+            line1Words.forEach((word, index) => {
+                setTerminalTimeout(() => {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.textContent = word + ' ';
+                    wordSpan.style.color = calculateColor(index, line1Words.length, startColor, endColor);
+                    line1Container.appendChild(wordSpan);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, index * delayL1Word);
+            });
+        
+            // --- Animate Line 2: Logo 'Passploit' (Character-by-character + GLITCH/PULSE) ---
+            const logoChars = line2Word.split(''); 
+            setTerminalTimeout(() => {
+                // 1. Character Typing
+                logoChars.forEach((char, index) => {
+                    setTerminalTimeout(() => {
+                        const charSpan = document.createElement('span');
+                        charSpan.textContent = char;
+                    
+                        // Base styling for the logo
+                        charSpan.style.fontSize = '72px';       
+                        charSpan.style.fontWeight = '800';      
+                        charSpan.style.fontStyle = 'italic';    
+                        charSpan.style.color = logoBlue; 
+                    
+                        line2Container.appendChild(charSpan);
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, index * delayL2Char); 
+                });
+
+                // 2. Start Glitch Effect AFTER typing finishes
+                setTerminalTimeout(() => {
+                    let flickerCount = 0;
+                    const maxFlicker = 10;
+
+                    const flickerInterval = setTerminalInterval(() => {
+                        if (flickerCount >= maxFlicker) {
+                            clearInterval(flickerInterval);
+                            terminalTimers = terminalTimers.filter(id => id !== flickerInterval); 
+                            line2Container.style.opacity = '1'; // Stop flicker
+
+                            // 3. Apply Permanent Pulse Class
+                            line2Container.classList.add('passploit-logo-pulsing'); 
+                            return;
+                        }
+
+                        // Aggressive flicker/glitch (Randomly set opacity)
+                        line2Container.style.opacity = (flickerCount % 3 === 0) ? '0.1' : '1';
+
+                        flickerCount++;
+                    }, 40); // Fast flicker timing
+
+                }, (logoChars.length * delayL2Char) + 50); // Typing time + short delay
+            
+            }, L2_START_TIME); 
+
+            // --- Animate Line 3: System Status (Word-by-word) ---
+            line3Words.forEach((word, index) => {
+                setTerminalTimeout(() => {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.textContent = word + ' ';
+                
+                    if (word === 'PASSPLOIT') {
+                        wordSpan.style.fontWeight = 'bold'; 
+                    } else {
+                        wordSpan.style.fontWeight = 'normal';
+                    }
+                
+                    wordSpan.style.fontSize = '18px';
+                    wordSpan.style.color = calculateColor(index, line3Words.length, startColor, endColor);
+                
+                    line3Container.appendChild(wordSpan);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, L3_START_TIME + (index * delayL3Word));
+            });
+        
+            // --- Animate Final Status Lines (Line-by-line) ---
+            const statusContainer = document.createElement('div');
+            terminalBody.appendChild(statusContainer);
+        
+            statusLines.forEach((lineText, index) => {
+                setTerminalTimeout(() => {
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = 'terminal-output';
+                    lineDiv.style.fontSize = '16px'; 
+                
+                    lineDiv.innerHTML = formatTerminalOutput(lineText);
+                
+                    statusContainer.appendChild(lineDiv);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, STATUS_START_TIME + (index * STATUS_LINE_DELAY));
+            });
+        
+            // --- Final Callback ---
+            setTerminalTimeout(callback, TOTAL_ANIMATION_TIME);
+        }
+
+
+        // =========================================================================
+        // === 4. MAIN TERMINAL ANIMATION LOGIC ====================================
+        // =========================================================================
+
+        function startTerminalAnimation() {
+            clearAllTerminalTimers(); 
+
+            const terminal = document.getElementById('home-terminal');
+            if (!terminal) return;
+        
+            terminal.innerHTML = '';
+        
+            // ⚠️ COMMANDS ARRAY (UPDATED HELP & RUN)
+            const commands = [
+                {
+                    command: 'help',
+                    outputs: [
+                        'PassPloit Commands (Type "clear" to reset screen):',
+                        '[+] use auxiliary/analyze/password_strength - Analyze password strength',
+                        '[+] use auxiliary/crack/hash - Crack hash using wordlist',
+                        '[+] use auxiliary/encrypt/encrypt - Encrypt text using various algorithms',
+                        '[+] use auxiliary/encrypt/decrypt - Decrypt text using various algorithms',
+                        '[+] use auxiliary/encrypt/key_manager - Generate RSA key pairs'
+                    ]
+                },
+                {
+                    command: 'set PASSWORD MyP@ssw0rd123!',
+                    outputs: [
+                        '[+] PASSWORD set to MyP@ssw0rd123!'
+                    ]
+                },
+                {
+                    command: 'run',
+                    outputs: [
+                        '[*] Running password analysis...',
+                        '**PROGRESS_BAR_SIMULATION**', // 💥 Placeholder for Progress Bar
+                        '--- SIMULATION TARGET ---',
+                        'Plaintext (The Cracked Password): MyP@ssw0rd123!',
+                        'Simulated Hash (SHA256): a1b2c3d4e5f6...',
+                        '',
+                        '--- Strength Analysis ---',
+                        'Password Length: 15 characters',
+                        'Strength Category: **Good**',
+                        '',
+                        '--- Crack Simulation ---',
+                        'Time to Crack (Offline Attack): Weeks to Months',
+                        '',
+                        '--- Detailed Crack Time Estimates ---',
+                        'Online Attack (e.g., website login): Months to Years',
+                        'Offline Attack (fast hash, single PC): Weeks to Months',
+                        'Massive Attack (botnet/supercomputer): Days to Weeks',
+                        '',
+                        '--- Improvement Suggestions ---',
+                        '[!] Increase the length! Current: 15. Target: 16+ characters.',
+                        '[+] Your password is **Good!** Use a password manager to store it.'
+                    ]
+                }
+            ];
+            
+            let currentCommandIndex = 0;
+            let currentOutputIndex = 0;
+            
+            function scrollToBottom() {
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+
+            // Type a line character-by-character with VARIABLE speed
+            function typeLine(element, text, callback) {
+                if (!text) { 
+                    element.textContent = '';
+                    if (callback) callback();
+                    return;
+                }
+            
+                element.textContent = '';
+                let index = 0;
+
+                const interval = setTerminalInterval(() => { 
+                    if (index < text.length) {
+                        element.textContent += text[index];
+                        index++;
+                        scrollToBottom();
+                    } else {
+                        clearInterval(interval);
+                        terminalTimers = terminalTimers.filter(id => id !== interval); 
+                        if (callback) callback();
+                    }
+                // 💥 FIX: Random speed between 15ms and 35ms for realism
+                }, Math.floor(Math.random() * 20) + 15); 
+            }
+
+            function addCommandLine(command) {
+                const commandLine = document.createElement('div');
+                commandLine.className = 'terminal-line';
+
+                const prompt = document.createElement('span');
+                prompt.className = 'terminal-prompt';
+                prompt.textContent = 'passploit:~$';
+
+                const commandElement = document.createElement('span');
+                commandElement.className = 'terminal-command';
+
+                commandLine.appendChild(prompt);
+                commandLine.appendChild(commandElement);
+                terminal.appendChild(commandLine);
+
+                typeLine(commandElement, command, () => {
+                    scrollToBottom();
+                    addOutputs(); 
+                });
+            }
+        
+            // This function handles the output lines and the transition to the next command/loop.
+            function addOutputs() {
+                const currentOutputs = commands[currentCommandIndex].outputs;
+            
+                if (currentOutputIndex < currentOutputs.length) {
+                    const outputText = currentOutputs[currentOutputIndex];
+
+                    // 💥 NEW: Check for Progress Bar Placeholder
+                    if (outputText === '**PROGRESS_BAR_SIMULATION**') {
+                        currentOutputIndex++; // Output index ko aage badha do
+                        simulateProgressBar(terminal, addOutputs); // Progress bar run karo aur phir addOutputs ko call karo
+                        return; // Is iteration se bahar nikal jao
+                    }
+                
+                    // Normal output line processing
+                    const outputLine = document.createElement('div');
+                    outputLine.className = 'terminal-output';
+
+                    outputLine.innerHTML = formatTerminalOutput(outputText);
+                    terminal.appendChild(outputLine);
+
+                    currentOutputIndex++;
+                    scrollToBottom();
+                
+                    setTerminalTimeout(addOutputs, 100); 
+                
+                } else {
+                    // All outputs finished. Transition to next command or loop restart.
+                    const cursorLine = document.createElement('div');
+                    cursorLine.className = 'terminal-line';
+
+                    const prompt = document.createElement('span');
+                    prompt.className = 'terminal-prompt'; 
+                    prompt.textContent = 'passploit:~$';
+
+                    const cursor = document.createElement('span');
+                    cursor.className = 'terminal-cursor';
+
+                    cursorLine.appendChild(prompt);
+                    cursorLine.appendChild(cursor);
+                    terminal.appendChild(cursorLine);
+
+                    scrollToBottom();
+
+                    currentCommandIndex++;
+                    currentOutputIndex = 0;
+
+                    if (currentCommandIndex < commands.length) {
+                        // Next command exists
+                        setTerminalTimeout(() => { 
+                            terminal.removeChild(cursorLine);
+                            addCommandLine(commands[currentCommandIndex].command);
+                        }, 2000); // 2 seconds pause
+                    } else {
+                        // All commands finished - RESTART LOOP
+                        setTerminalTimeout(() => {
+                            currentCommandIndex = 0;
+                            currentOutputIndex = 0;
+                            startTerminalAnimation(); // Full restart
+                        }, 5000); // 5 seconds pause
+                    }
+                }
+            }
+
+            // --- START SEQUENCE: BEGIN WITH LOGO ANIMATION ---
+            generatePassPloitLogo(terminal, () => {
+                setTerminalTimeout(() => { 
+                    addCommandLine(commands[currentCommandIndex].command);
+                }, 300); 
+            });
+        }
+
+        function generateToolLogo(terminalBody) {
+            // --- Define the CSS Variable for Blue Color ---
+            const logoBlue = 'var(--logo-blue)'; 
+        
+            // --- Line 1: Loading Text (Word-by-word) ---
+            const line1Text = 'Loading PassPloit v4.1-dev...';
+            const line1Words = line1Text.split(' ');
+            
+            const line1Container = document.createElement('div');
+            line1Container.className = 'terminal-output';
+            line1Container.style.fontSize = '18px';
+            line1Container.style.color = logoBlue; 
+            terminalBody.appendChild(line1Container);
+        
+            // --- Line 2: Main Logo 'Passploit' (Character-by-character) ---
+            const line2Word = 'Passploit'; 
+            const line2Container = document.createElement('div');
+            line2Container.className = 'terminal-output';
+            line2Container.style.marginTop = '10px'; 
+            line2Container.style.textAlign = 'left'; 
+            terminalBody.appendChild(line2Container);
+        
+            // --- Line 3: System Status (Word-by-word) ---
+            const line3Words = ['>>', 'PASSPLOIT', '<<', '[SYSTEM', 'READY]'];
+            
+            const line3Container = document.createElement('div');
+            line3Container.className = 'terminal-output';
+            line3Container.style.marginTop = '10px'; 
+            line3Container.style.fontSize = '18px';
+            line3Container.style.color = logoBlue; 
+            terminalBody.appendChild(line3Container);
+        
+            // --- Color Mixing Logic (Placeholder, using solid blue) ---
+            const startColor = { r: 0, g: 123, b: 255 }; 
+            const endColor = { r: 0, g: 123, b: 255 }; 
+        
+            // --- Animate Line 1 (Word-by-word) ---
+            let line2StartTime = 0;
+        
+            line1Words.forEach((word, index) => {
+                line2StartTime = (index + 1) * 100; // Calculate start time for next line
+                setTimeout(() => {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.textContent = word + ' ';
+                    wordSpan.style.color = calculateColor(index, line1Words.length, startColor, endColor);
+                    line1Container.appendChild(wordSpan);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, index * 100);
+            });
+        
+            // --- Animate Line 2: Logo 'Passploit' (Character-by-character) ---
+            const logoChars = line2Word.split(''); // Split the word into individual characters
+            const charDelay = 50; // Fast delay for character generation
+            const line3StartTime = line2StartTime + (logoChars.length * charDelay) + 200; // Calculate start time for line 3
+            
+            setTimeout(() => {
+                logoChars.forEach((char, index) => {
+                    setTimeout(() => {
+                        const charSpan = document.createElement('span');
+                        charSpan.textContent = char;
+                        
+                        // Apply styling to match the image
+                        charSpan.style.fontSize = '72px';       
+                        charSpan.style.fontWeight = '800';      
+                        charSpan.style.fontStyle = 'italic';    
+                        charSpan.style.color = logoBlue; 
+                    
+                        line2Container.appendChild(charSpan);
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, index * charDelay); // Character delay
+                });
+            }, line2StartTime + 200); // Wait 200ms after Line 1 is done
+        
+        
+            // --- Animate Line 3: System Status (Word-by-word) ---
+            
+            line3Words.forEach((word, index) => {
+                setTimeout(() => {
+                    const wordSpan = document.createElement('span');
+                    wordSpan.textContent = word + ' ';
+                
+                    // Special styling for the word 'PASSPLOIT' in line 3
+                    if (word === 'PASSPLOIT') {
+                        wordSpan.style.fontWeight = 'bold'; 
+                    } else {
+                        wordSpan.style.fontWeight = 'normal';
+                    }
+                    
+                    wordSpan.style.fontSize = '18px';
+                    wordSpan.style.color = calculateColor(index, line3Words.length, startColor, endColor);
+                
+                    line3Container.appendChild(wordSpan);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, line3StartTime + (index * 100));
+            });
+        }
+
+        // Password Analyzer Terminal
+        function initPasswordAnalyzerTerminal() {
+            const terminalBody = document.getElementById('password-analyzer-terminal-body');
+            
+            // Clear terminal
+            terminalBody.innerHTML = '';
+            
+            // Generate PassPloit logo first
+            const logoTime = generatePassPloitLogo(terminalBody);
+            
+            // Add tool instructions after logo
+            setTimeout(() => {
+                const instructions = [
+                    '[*] auxiliary/analyze/password_strength loaded',
+                    '[*] Type "set PASSWORD <password>" to set a password to analyze',
+                    '[*] Type "run" to execute the module'
+                ];
+                
+                instructions.forEach((instruction, index) => {
+                    setTimeout(() => {
+                        const outputLine = document.createElement('div');
+                        outputLine.className = 'terminal-output';
+                        outputLine.textContent = instruction;
+                        terminalBody.appendChild(outputLine);
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, index * 200);
+                });
+                
+                // Add input container
+                setTimeout(() => {
+                    const inputContainer = document.createElement('div');
+                    inputContainer.className = 'terminal-input-container';
+                    
+                    const prompt = document.createElement('span');
+                    prompt.className = 'terminal-prompt';
+                    prompt.textContent = 'passploit$';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'terminal-input';
+                    input.id = 'password-analyzer-input';
+                    input.placeholder = 'set PASSWORD <password>';
+                    
+                    inputContainer.appendChild(prompt);
+                    inputContainer.appendChild(input);
+                    terminalBody.appendChild(inputContainer);
+                    
+                    // Focus on input
+                    input.focus();
+                    
+                    // Add event listener for Enter key
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            const command = input.value.trim();
+                            if (!command) return;
+                            
+                                                        // Add command to terminal
+                            const commandLine = document.createElement('div');
+                            commandLine.className = 'terminal-line';
+                            
+                            const prompt = document.createElement('span');
+                            prompt.className = 'terminal-prompt';
+                            prompt.textContent = 'passploit$';
+                            
+                            const commandElement = document.createElement('span');
+                            commandElement.className = 'terminal-command';
+                            commandElement.textContent = command;
+                            
+                            commandLine.appendChild(prompt);
+                            commandLine.appendChild(commandElement);
+                            terminalBody.insertBefore(commandLine, inputContainer);
+                            
+                            // Process command
+                            processPasswordAnalyzerCommand(command, terminalBody, inputContainer);
+                            
+                            // Clear input
+                            input.value = '';
+                            
+                            // Scroll to bottom
+                            terminalBody.scrollTop = terminalBody.scrollHeight;
+                        }
+                    });
+                }, instructions.length * 200);
+            }, logoTime);
+        }
+        
+        function processPasswordAnalyzerCommand(command, terminalBody, inputContainer) {
+            let outputLines = [];
+            
+            if (command.startsWith('set PASSWORD ')) {
+                const password = command.substring(13);
+                
+                // Store password for analysis
+                inputContainer.dataset.password = password;
+                
+                outputLines.push(`[+] PASSWORD set to ${password}`);
+            } else if (command === 'run') {
+                const password = inputContainer.dataset.password || '';
+                
+                if (!password) {
+                    outputLines.push('[-] No password set. Use "set PASSWORD <password>" to set a password.');
+                } else {
+                    outputLines.push('[*] Running password analysis...');
+                    outputLines.push('');
+                    outputLines.push('--- SIMULATION TARGET ---');
+                    outputLines.push(`Plaintext (The Cracked Password): ${password}`);
+                    outputLines.push(`Simulated Hash (SHA256): ${generateRandomHash('sha256')}`);
+                    outputLines.push('');
+                    outputLines.push('--- Strength Analysis ---');
+                    outputLines.push(`Password Length: ${password.length} characters`);
+                    outputLines.push(`Strength Category: ${getPasswordStrength(password)}`);
+                    outputLines.push('');
+                    outputLines.push('--- Crack Simulation ---');
+                    outputLines.push(`Time to Crack (Offline Attack): ${calculateCrackTime(password)}`);
+                    outputLines.push('');
+                    outputLines.push('--- Detailed Crack Time Estimates ---');
+                    outputLines.push(`Online Attack (e.g., website login): ${calculateCrackTime(password, 'online')}`);
+                    outputLines.push(`Offline Attack (fast hash, single PC): ${calculateCrackTime(password, 'offline')}`);
+                    outputLines.push(`Massive Attack (botnet/supercomputer): ${calculateCrackTime(password, 'massive')}`);
+                    outputLines.push('');
+                    outputLines.push('--- Improvement Suggestions ---');
+                    outputLines.push(getPasswordSuggestions(password));
+                }
+            } else if (command === 'help') {
+                outputLines.push('Password Analyzer Commands:');
+                outputLines.push('  set PASSWORD <password> - Set a password to analyze');
+                outputLines.push('  run - Execute the password analysis');
+                outputLines.push('  help - Show this help message');
+            } else {
+                outputLines.push(`[-] Unknown command: ${command}`);
+                outputLines.push('[*] Type "help" for available commands');
+            }
+            
+            // Add outputs to terminal
+            outputLines.forEach((line, index) => {
+                setTimeout(() => {
+                    const outputLine = document.createElement('div');
+                    outputLine.className = 'terminal-output';
+                    outputLine.textContent = line;
+                    terminalBody.insertBefore(outputLine, inputContainer);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, index * 100);
+            });
+        }
+        
+        // Hash Generator Terminal
+        function initHashGeneratorTerminal() {
+            const terminalBody = document.getElementById('hash-generator-terminal-body');
+            
+            // Clear terminal
+            terminalBody.innerHTML = '';
+            
+            // Generate PassPloit logo first
+            const logoTime = generatePassPloitLogo(terminalBody);
+            
+            // Add tool instructions after logo
+            setTimeout(() => {
+                const instructions = [
+                    '[*] auxiliary/encrypt/hash_generator loaded',
+                    '[*] Type "set TEXT <text>" to set text to hash',
+                    '[*] Type "set ALGORITHM <md5|sha1|sha256>" to set hash algorithm',
+                    '[*] Type "run" to execute the module'
+                ];
+                
+                instructions.forEach((instruction, index) => {
+                    setTimeout(() => {
+                        const outputLine = document.createElement('div');
+                        outputLine.className = 'terminal-output';
+                        outputLine.textContent = instruction;
+                        terminalBody.appendChild(outputLine);
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, index * 200);
+                });
+                
+                // Add input container
+                setTimeout(() => {
+                    const inputContainer = document.createElement('div');
+                    inputContainer.className = 'terminal-input-container';
+                    
+                    const prompt = document.createElement('span');
+                    prompt.className = 'terminal-prompt';
+                    prompt.textContent = 'passploit$';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'terminal-input';
+                    input.id = 'hash-generator-input';
+                    input.placeholder = 'set TEXT <text>';
+                    
+                    inputContainer.appendChild(prompt);
+                    inputContainer.appendChild(input);
+                    terminalBody.appendChild(inputContainer);
+                    
+                    // Focus on input
+                    input.focus();
+                    
+                    // Add event listener for Enter key
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            const command = input.value.trim();
+                            if (!command) return;
+                            
+                            // Add command to terminal
+                            const commandLine = document.createElement('div');
+                            commandLine.className = 'terminal-line';
+                            
+                            const prompt = document.createElement('span');
+                            prompt.className = 'terminal-prompt';
+                            prompt.textContent = 'passploit$';
+                            
+                            const commandElement = document.createElement('span');
+                            commandElement.className = 'terminal-command';
+                            commandElement.textContent = command;
+                            
+                            commandLine.appendChild(prompt);
+                            commandLine.appendChild(commandElement);
+                            terminalBody.insertBefore(commandLine, inputContainer);
+                            
+                            // Process command
+                            processHashGeneratorCommand(command, terminalBody, inputContainer);
+                            
+                            // Clear input
+                            input.value = '';
+                            
+                            // Scroll to bottom
+                            terminalBody.scrollTop = terminalBody.scrollHeight;
+                        }
+                    });
+                }, instructions.length * 200);
+            }, logoTime);
+        }
+        
+        function processHashGeneratorCommand(command, terminalBody, inputContainer) {
+            let outputLines = [];
+            
+            if (command.startsWith('set TEXT ')) {
+                const text = command.substring(9);
+                
+                // Store text for hashing
+                inputContainer.dataset.text = text;
+                
+                outputLines.push(`[+] TEXT set to "${text}"`);
+            } else if (command.startsWith('set ALGORITHM ')) {
+                const algorithm = command.substring(15);
+                
+                // Store algorithm for hashing
+                inputContainer.dataset.algorithm = algorithm;
+                
+                outputLines.push(`[+] ALGORITHM set to ${algorithm}`);
+            } else if (command === 'run') {
+                const text = inputContainer.dataset.text || '';
+                const algorithm = inputContainer.dataset.algorithm || 'sha256';
+                
+                if (!text) {
+                    outputLines.push('[-] No text set. Use "set TEXT <text>" to set text to hash.');
+                } else {
+                    outputLines.push('[*] Generating hash...');
+                    outputLines.push('');
+                    outputLines.push('--- HASH GENERATION ---');
+                    outputLines.push(`Input Text: ${text}`);
+                    outputLines.push(`Algorithm: ${algorithm.toUpperCase()}`);
+                    outputLines.push(`Hash: ${generateRandomHash(algorithm)}`);
+                }
+            } else if (command === 'help') {
+                outputLines.push('Hash Generator Commands:');
+                outputLines.push('  set TEXT <text> - Set text to hash');
+                outputLines.push('  set ALGORITHM <md5|sha1|sha256> - Set hash algorithm');
+                outputLines.push('  run - Generate hash');
+                outputLines.push('  help - Show this help message');
+            } else {
+                outputLines.push(`[-] Unknown command: ${command}`);
+                outputLines.push('[*] Type "help" for available commands');
+            }
+            
+            // Add outputs to terminal
+            outputLines.forEach((line, index) => {
+                setTimeout(() => {
+                    const outputLine = document.createElement('div');
+                    outputLine.className = 'terminal-output';
+                    outputLine.textContent = line;
+                    terminalBody.insertBefore(outputLine, inputContainer);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, index * 100);
+            });
+        }
+        
+        // Hash Cracker Terminal
+        function initHashCrackerTerminal() {
+            const terminalBody = document.getElementById('hash-cracker-terminal-body');
+            
+            // Clear terminal
+            terminalBody.innerHTML = '';
+            
+            // Generate PassPloit logo first
+            const logoTime = generatePassPloitLogo(terminalBody);
+            
+            // Add tool instructions after logo
+            setTimeout(() => {
+                const instructions = [
+                    '[*] auxiliary/crack/hash loaded',
+                    '[*] Type "set HASH <hash>" to set hash to crack',
+                    '[*] Type "set ALGORITHM <md5|sha1|sha256>" to set hash algorithm',
+                    '[*] Type "run" to execute the module'
+                ];
+                
+                instructions.forEach((instruction, index) => {
+                    setTimeout(() => {
+                        const outputLine = document.createElement('div');
+                        outputLine.className = 'terminal-output';
+                        outputLine.textContent = instruction;
+                        terminalBody.appendChild(outputLine);
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, index * 200);
+                });
+                
+                // Add input container
+                setTimeout(() => {
+                    const inputContainer = document.createElement('div');
+                    inputContainer.className = 'terminal-input-container';
+                    
+                    const prompt = document.createElement('span');
+                    prompt.className = 'terminal-prompt';
+                    prompt.textContent = 'passploit$';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'terminal-input';
+                    input.id = 'hash-cracker-input';
+                    input.placeholder = 'set HASH <hash>';
+                    
+                    inputContainer.appendChild(prompt);
+                    inputContainer.appendChild(input);
+                    terminalBody.appendChild(inputContainer);
+                    
+                    // Focus on input
+                    input.focus();
+                    
+                    // Add event listener for Enter key
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            const command = input.value.trim();
+                            if (!command) return;
+                            
+                            // Add command to terminal
+                            const commandLine = document.createElement('div');
+                            commandLine.className = 'terminal-line';
+                            
+                            const prompt = document.createElement('span');
+                            prompt.className = 'terminal-prompt';
+                            prompt.textContent = 'passploit$';
+                            
+                            const commandElement = document.createElement('span');
+                            commandElement.className = 'terminal-command';
+                            commandElement.textContent = command;
+                            
+                            commandLine.appendChild(prompt);
+                            commandLine.appendChild(commandElement);
+                            terminalBody.insertBefore(commandLine, inputContainer);
+                            
+                            // Process command
+                            processHashCrackerCommand(command, terminalBody, inputContainer);
+                            
+                            // Clear input
+                            input.value = '';
+                            
+                            // Scroll to bottom
+                            terminalBody.scrollTop = terminalBody.scrollHeight;
+                        }
+                    });
+                }, instructions.length * 200);
+            }, logoTime);
+        }
+        
+        function processHashCrackerCommand(command, terminalBody, inputContainer) {
+            let outputLines = [];
+            
+            if (command.startsWith('set HASH ')) {
+                const hash = command.substring(9);
+                
+                // Store hash for cracking
+                inputContainer.dataset.hash = hash;
+                
+                outputLines.push(`[+] HASH set to ${hash}`);
+            } else if (command.startsWith('set ALGORITHM ')) {
+                const algorithm = command.substring(15);
+                
+                // Store algorithm for cracking
+                inputContainer.dataset.algorithm = algorithm;
+                
+                outputLines.push(`[+] ALGORITHM set to ${algorithm}`);
+            } else if (command === 'run') {
+                const hash = inputContainer.dataset.hash || '';
+                const algorithm = inputContainer.dataset.algorithm || 'md5';
+                
+                if (!hash) {
+                    outputLines.push('[-] No hash set. Use "set HASH <hash>" to set hash to crack.');
+                } else {
+                    outputLines.push('[*] Cracking hash...');
+                    outputLines.push('[*] This may take a while depending on the hash complexity...');
+                    outputLines.push('');
+                    
+                    // Simulate cracking process
+                    setTimeout(() => {
+                        const crackResults = [
+                            '--- HASH CRACKING RESULTS ---',
+                            `Input Hash: ${hash}`,
+                            `Hash Type: ${algorithm.toUpperCase()}`,
+                            'Status: Success',
+                            'Result: password123'
+                        ];
+                        
+                        crackResults.forEach((line, index) => {
+                            setTimeout(() => {
+                                const outputLine = document.createElement('div');
+                                outputLine.className = 'terminal-output';
+                                outputLine.textContent = line;
+                                terminalBody.insertBefore(outputLine, inputContainer);
+                                terminalBody.scrollTop = terminalBody.scrollHeight;
+                            }, index * 100);
+                        });
+                    }, 2000);
+                    
+                    return; // Return early to avoid adding outputs twice
+                }
+            } else if (command === 'help') {
+                outputLines.push('Hash Cracker Commands:');
+                outputLines.push('  set HASH <hash> - Set hash to crack');
+                outputLines.push('  set ALGORITHM <md5|sha1|sha256> - Set hash algorithm');
+                outputLines.push('  run - Crack hash');
+                outputLines.push('  help - Show this help message');
+            } else {
+                outputLines.push(`[-] Unknown command: ${command}`);
+                outputLines.push('[*] Type "help" for available commands');
+            }
+            
+            // Add outputs to terminal
+            outputLines.forEach((line, index) => {
+                setTimeout(() => {
+                    const outputLine = document.createElement('div');
+                    outputLine.className = 'terminal-output';
+                    outputLine.textContent = line;
+                    terminalBody.insertBefore(outputLine, inputContainer);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, index * 100);
+            });
+        }
+        
+        // Crypto Tools Terminal
+        function initCryptoToolsTerminal() {
+            const terminalBody = document.getElementById('crypto-tools-terminal-body');
+            
+            // Clear terminal
+            terminalBody.innerHTML = '';
+            
+            // Generate PassPloit logo first
+            const logoTime = generatePassPloitLogo(terminalBody);
+            
+            // Add tool instructions after logo
+            setTimeout(() => {
+                const instructions = [
+                    '[*] auxiliary/encrypt/cryptotools loaded',
+                    '[*] Type "set TEXT <text>" to set text to process',
+                    '[*] Type "set ALGORITHM <aes|rsa|base64>" to set algorithm',
+                    '[*] Type "set ACTION <encrypt|decrypt>" to set action',
+                    '[*] Type "run" to execute the module'
+                ];
+                
+                instructions.forEach((instruction, index) => {
+                    setTimeout(() => {
+                        const outputLine = document.createElement('div');
+                        outputLine.className = 'terminal-output';
+                        outputLine.textContent = instruction;
+                        terminalBody.appendChild(outputLine);
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, index * 200);
+                });
+                
+                // Add input container
+                setTimeout(() => {
+                    const inputContainer = document.createElement('div');
+                    inputContainer.className = 'terminal-input-container';
+                    
+                    const prompt = document.createElement('span');
+                    prompt.className = 'terminal-prompt';
+                    prompt.textContent = 'passploit$';
+                    
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'terminal-input';
+                    input.id = 'crypto-tools-input';
+                    input.placeholder = 'set TEXT <text>';
+                    
+                    inputContainer.appendChild(prompt);
+                    inputContainer.appendChild(input);
+                    terminalBody.appendChild(inputContainer);
+                    
+                    // Focus on input
+                    input.focus();
+                    
+                    // Add event listener for Enter key
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            const command = input.value.trim();
+                            if (!command) return;
+                            
+                            // Add command to terminal
+                            const commandLine = document.createElement('div');
+                            commandLine.className = 'terminal-line';
+                            
+                            const prompt = document.createElement('span');
+                            prompt.className = 'terminal-prompt';
+                            prompt.textContent = 'passploit$';
+                            
+                            const commandElement = document.createElement('span');
+                            commandElement.className = 'terminal-command';
+                            commandElement.textContent = command;
+                            
+                            commandLine.appendChild(prompt);
+                            commandLine.appendChild(commandElement);
+                            terminalBody.insertBefore(commandLine, inputContainer);
+                            
+                            // Process command
+                            processCryptoToolsCommand(command, terminalBody, inputContainer);
+                            
+                            // Clear input
+                            input.value = '';
+                            
+                            // Scroll to bottom
+                            terminalBody.scrollTop = terminalBody.scrollHeight;
+                        }
+                    });
+                }, instructions.length * 200);
+            }, logoTime);
+        }
+        
+        function processCryptoToolsCommand(command, terminalBody, inputContainer) {
+            let outputLines = [];
+            
+            if (command.startsWith('set TEXT ')) {
+                const text = command.substring(9);
+                
+                // Store text for processing
+                inputContainer.dataset.text = text;
+                
+                outputLines.push(`[+] TEXT set to "${text}"`);
+            } else if (command.startsWith('set ALGORITHM ')) {
+                const algorithm = command.substring(15);
+                
+                // Store algorithm for processing
+                inputContainer.dataset.algorithm = algorithm;
+                
+                outputLines.push(`[+] ALGORITHM set to ${algorithm}`);
+            } else if (command.startsWith('set ACTION ')) {
+                const action = command.substring(12);
+                
+                // Store action for processing
+                inputContainer.dataset.action = action;
+                
+                outputLines.push(`[+] ACTION set to ${action}`);
+            } else if (command === 'run') {
+                const text = inputContainer.dataset.text || '';
+                const algorithm = inputContainer.dataset.algorithm || 'aes';
+                const action = inputContainer.dataset.action || 'encrypt';
+                
+                if (!text) {
+                    outputLines.push('[-] No text set. Use "set TEXT <text>" to set text to process.');
+                } else {
+                    outputLines.push(`[*] ${action === 'encrypt' ? 'Encrypting' : 'Decrypting'} text using ${algorithm.toUpperCase()}...`);
+                    outputLines.push('');
+                    outputLines.push('--- CRYPTOGRAPHY RESULTS ---');
+                    outputLines.push(`Input Text: ${text}`);
+                    outputLines.push(`Algorithm: ${algorithm.toUpperCase()}`);
+                    outputLines.push(`Action: ${action.charAt(0).toUpperCase() + action.slice(1)}`);
+                    outputLines.push(`Result: ${generateRandomString(32)}`);
+                }
+            } else if (command === 'help') {
+                outputLines.push('Crypto Tools Commands:');
+                outputLines.push('  set TEXT <text> - Set text to process');
+                outputLines.push('  set ALGORITHM <aes|rsa|base64> - Set encryption algorithm');
+                outputLines.push('  set ACTION <encrypt|decrypt> - Set action to perform');
+                outputLines.push('  run - Process text');
+                outputLines.push('  help - Show this help message');
+            } else {
+                outputLines.push(`[-] Unknown command: ${command}`);
+                outputLines.push('[*] Type "help" for available commands');
+            }
+            
+            // Add outputs to terminal
+            outputLines.forEach((line, index) => {
+                setTimeout(() => {
+                    const outputLine = document.createElement('div');
+                    outputLine.className = 'terminal-output';
+                    outputLine.textContent = line;
+                    terminalBody.insertBefore(outputLine, inputContainer);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, index * 100);
+            });
+        }
+        
+        // Password Analyzer
+        function analyzePassword() {
+            const password = document.getElementById('password-input').value;
+            if (!password) {
+                showToast('Please enter a password', 'error');
+                return;
+            }
+            
+            const output = document.getElementById('password-analyzer-output');
+            output.classList.add('active');
+            
+            document.getElementById('analyzed-password').textContent = password;
+            document.getElementById('password-strength').textContent = getPasswordStrength(password);
+            document.getElementById('crack-time').textContent = calculateCrackTime(password);
+            document.getElementById('password-suggestions').textContent = getPasswordSuggestions(password);
+        }
+        
+        function getPasswordStrength(password) {
+            let strength = 'Weak';
+            
+            if (password.length >= 8) {
+                strength = 'Medium';
+            }
+            
+            if (password.length >= 12) {
+                strength = 'Good';
+            }
+            
+            if (password.length >= 16) {
+                strength = 'Excellent';
+            }
+            
+            return strength;
+        }
+        
+        function calculateCrackTime(password, attackType = 'offline') {
+            const strength = getPasswordStrength(password);
+            
+            if (attackType === 'online') {
+                if (strength === 'Weak') {
+                    return 'Minutes to Hours';
+                } else if (strength === 'Medium') {
+                    return 'Hours to Days';
+                } else if (strength === 'Good') {
+                    return 'Days to Weeks';
+                } else {
+                    return 'Weeks to Months';
+                }
+            } else if (attackType === 'massive') {
+                if (strength === 'Weak') {
+                    return 'Seconds to Minutes';
+                } else if (strength === 'Medium') {
+                    return 'Minutes to Hours';
+                } else if (strength === 'Good') {
+                    return 'Hours to Days';
+                } else {
+                    return 'Days to Weeks';
+                }
+            } else { // offline
+                if (strength === 'Weak') {
+                    return 'Seconds to Minutes (Likely found in a common wordlist)';
+                } else if (strength === 'Medium') {
+                    return 'Hours to Days';
+                } else if (strength === 'Good') {
+                    return 'Weeks to Months';
+                } else {
+                    return 'Practically Impossible (Requires centuries with current technology)';
+                }
+            }
+        }
+        
+        function getPasswordSuggestions(password) {
+            let suggestions = [];
+            
+            if (password.length < 16) {
+                suggestions.push(`Increase the length! Current: ${password.length}. Target: 16+ characters.`);
+            }
+            
+            if (!/[A-Z]/.test(password)) {
+                suggestions.push('Add Upper case letters (A-Z).');
+            }
+            
+            if (!/[a-z]/.test(password)) {
+                suggestions.push('Add Lower case letters (a-z).');
+            }
+            
+            if (!/[0-9]/.test(password)) {
+                suggestions.push('Add Numbers (0-9).');
+            }
+            
+            if (!/[^A-Za-z0-9]/.test(password)) {
+                suggestions.push('Add Symbols (!@#$%).');
+            }
+            
+            if (suggestions.length === 0) {
+                suggestions.push('Your password is **Excellent!** Use a password manager to store it.');
+            }
+            
+            return suggestions.join('\n');
+        }
+        
+        // Hash Generator
+        function generateHash() {
+            const text = document.getElementById('text-input').value;
+            if (!text) {
+                showToast('Please enter text to hash', 'error');
+                return;
+            }
+            
+            const algorithm = document.getElementById('hash-algorithm-select').value;
+            const output = document.getElementById('hash-generator-output');
+            output.classList.add('active');
+            
+            document.getElementById('input-text').textContent = text;
+            document.getElementById('selected-algorithm').textContent = algorithm.toUpperCase();
+            document.getElementById('generated-hash').textContent = generateRandomHash(algorithm);
+        }
+        
+        function generateRandomHash(algorithm) {
+            let length = 32;
+            
+            if (algorithm === 'md5') {
+                length = 32;
+            } else if (algorithm === 'sha1') {
+                length = 40;
+            } else if (algorithm === 'sha256') {
+                length = 64;
+            }
+            
+            const chars = '0123456789abcdef';
+            let hash = '';
+            
+            for (let i = 0; i < length; i++) {
+                hash += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            return hash;
+        }
+        
+        // Hash Cracker
+        function crackHash() {
+            const hash = document.getElementById('hash-input').value;
+            if (!hash) {
+                showToast('Please enter a hash to crack', 'error');
+                return;
+            }
+            
+            const algorithm = document.getElementById('crack-algorithm-select').value;
+            const output = document.getElementById('hash-cracker-output');
+            output.classList.add('active');
+            
+            document.getElementById('input-hash').textContent = hash;
+            document.getElementById('crack-algorithm').textContent = algorithm.toUpperCase();
+            
+            // Simulate cracking process
+            document.getElementById('crack-status').textContent = 'Cracking...';
+            document.getElementById('crack-result').textContent = 'In progress...';
+            
+            setTimeout(() => {
+                document.getElementById('crack-status').textContent = 'Success';
+                document.getElementById('crack-result').textContent = 'password123';
+            }, 2000);
+        }
+        
+        // Crypto Tools
+        function processCrypto() {
+            const text = document.getElementById('crypto-input').value;
+            if (!text) {
+                showToast('Please enter text to process', 'error');
+                return;
+            }
+            
+            const algorithm = document.getElementById('crypto-algorithm-select').value;
+            const action = document.getElementById('crypto-action-select').value;
+            const output = document.getElementById('crypto-tools-output');
+            output.classList.add('active');
+            
+            document.getElementById('crypto-input-text').textContent = text;
+            document.getElementById('crypto-algorithm').textContent = algorithm.toUpperCase();
+            document.getElementById('crypto-action').textContent = action.charAt(0).toUpperCase() + action.slice(1);
+            
+            // Simulate processing
+            let result = '';
+            
+            if (action === 'encrypt') {
+                result = generateRandomString(32);
+            } else {
+                result = generateRandomString(16);
+            }
+            
+            document.getElementById('crypto-result').textContent = result;
+        }
+        
+        function generateRandomString(length) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            return result;
+        }
+        
+        // Copy to Clipboard
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Copied to clipboard!');
+            }).catch(err => {
+                showToast('Failed to copy', 'error');
+            });
+        }
+        
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:muhammadhamzahasan.202@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            showToast('Opening email client to send your message...');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        function showToast(message, type = 'success') {
+            toastMessage.textContent = message;
+            
+            // Update toast class based on type
+            toast.className = 'toast ' + type;
+            
+            // Update icon based on type
+            const icon = toast.querySelector('i');
+            if (type === 'success') {
+                icon.className = 'fas fa-check-circle';
+            } else if (type === 'error') {
+                icon.className = 'fas fa-exclamation-circle';
+            }
+            
+            // Show toast
+            toast.classList.add('show');
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // =========================================================================
+        // === BLOCK 1: COUNTER ANIMATION LOGIC (Unchanged) ========================
+        // =========================================================================
+        function animateCounter(element, target) {
+            let start = 0;
+            const duration = 1500;
+            const startTime = performance.now();
+            function updateCounter(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = progress * progress; 
+                start = Math.floor(easedProgress * target);
+                element.textContent = start;
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            requestAnimationFrame(updateCounter);
+        }
+        function initAboutCounters() {
+            const counters = document.querySelectorAll('.stat-value');
+            if (counters.length === 0) return;
+            counters.forEach(counter => {
+                counter.textContent = '0';
+                const target = parseInt(counter.getAttribute('data-target'));
+                animateCounter(counter, target);
+            });
+        }
+        
+        // =========================================================================
+        // === BLOCK 3: HERO SECTION TERMINAL LOGIC (RESTARTABLE) ==================
+        // =========================================================================
+        function runHeroAnimation() {
+            const heroConsole = document.querySelector('.hack-console-hero-wrapper');
+            const heroOutput = document.getElementById('hero-terminal-output'); 
+            const contentCardWrapper = document.getElementById('terminal-animation-wrapper');
+            const contentToTypeContainer = document.getElementById('content-to-type');
+        
+            if (!heroConsole || !heroOutput || !contentCardWrapper || !contentToTypeContainer) {
+                console.error("CRITICAL ERROR: Required elements are missing.");
+                return;
+            }
+        
+            // RESTART LOGIC: Reset everything
+            heroOutput.innerHTML = '';
+            heroConsole.style.opacity = '1';
+            heroConsole.style.display = 'flex';
+            contentCardWrapper.style.opacity = '0';
+            contentCardWrapper.style.display = 'none';
+            
+            // --- HACKING SEQUENCE MESSAGES ---
+            const hackingSequence = [
+                { delay: 800, output: ">> INITIALIZING SECURED CONNECTION...", type: 'system' },
+                { delay: 500, output: ">> RUNNING AUTHENTICATION PROTOCOL V2.3...", type: 'system' },
+                { delay: 1200, output: "[STATUS] FAILED. Rerouting to manual data access...", type: 'system' },
+                { delay: 1000, output: "attempt_access --target MUHAMMAD_HAMZA.dat --mode override", type: 'command' },
+                { delay: 1500, output: "> <strong>ACCESS GRANTED</strong> to file: <strong>MUHAMMAD_HAMZA.dat</strong>", type: 'success' },
+                { delay: 800, output: "decrypting_and_loading_profile_data...", type: 'command' },
+                { delay: 1500, output: ">>> FILE OPENED. Displaying content...", type: 'system' }
+            ];
+        
+            let sequenceIndex = 0;
+            
+            function hideTerminalAndShowContent() {
+                heroConsole.style.opacity = '0';
+                
+                contentCardWrapper.style.opacity = '0'; 
+                contentCardWrapper.style.display = 'block';
+            
+                setTimeout(() => {
+                    heroConsole.style.display = 'none';
+                    contentCardWrapper.style.transition = 'opacity 0.5s ease';
+                    contentCardWrapper.style.opacity = '1';
+                    
+                    initAboutCounters(); 
+                }, 500);
+            }
+            
+            function runSequence() {
+                if (sequenceIndex < hackingSequence.length) {
+                    const step = hackingSequence[sequenceIndex];
+                    
+                    const cursor = heroOutput.querySelector('.cursor');
+                    if (cursor) cursor.remove();
+                    
+                    let lineHTML = '';
+                
+                    if (step.type === 'command') {
+                        lineHTML = `<span class="hack-console-prompt">Passploit:</span> <span class="hack-console-command">${step.output}</span>`;
+                    } else if (step.type === 'success') {
+                        lineHTML = `<span class="hack-console-output-line">${step.output}</span>`;
+                    } else {
+                        lineHTML = step.output;
+                    }
+                
+                    heroOutput.innerHTML += `<div class="hack-console-line" style="line-height:1.5;">${lineHTML}</div>`;
+                    heroOutput.innerHTML += '<span class="cursor">_</span>';
+                    
+                    heroOutput.scrollTop = heroOutput.scrollHeight;
+                    
+                    sequenceIndex++;
+                    setTimeout(runSequence, step.delay);
+                } else {
+                    setTimeout(hideTerminalAndShowContent, 1000);
+                }
+            }
+        
+            runSequence(); 
+        }
+        
+        
+        // ======================================================
+        // === BLOCK 4: FINAL INITIALIZATION BLOCK ==============
+        // ======================================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            startTerminalAnimation();
+
+            //---- portfolio----->
+            const subtitleElement = document.getElementById('portfolio-subtitle-text');
+            const portfolioSection = document.getElementById('portfolio');
+
+            if (!subtitleElement || !portfolioSection) {
+                console.warn("Portfolio subtitle typing: Required elements not found.");
+                return;
+            }
+        
+            // 1. Array of Phrases to Loop
+            const phrases = [
+                { 
+                    text: "Explore my work in cybersecurity, penetration testing, and security tool development.", 
+                    color: "var(--terminal-light-blue, #38BDF8)" 
+                },
+                { 
+                    text: "Gain hands-on expertise by testing my security tools and skill assessments.", 
+                    // Aapka pasandida Orange/Yellow color
+                    color: "var(--logo-blue, #007bff)" 
+                }
+            ];
+            
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let isTypingStarted = false; // Flag to ensure loop only starts once
+            
+            // 2. The Main Typing/Deleting Loop Function
+            const typeLoop = () => {
+                if (!subtitleElement) return;
+            
+                const currentPhrase = phrases[phraseIndex];
+
+                // Apply the color for the current phrase
+                subtitleElement.style.color = currentPhrase.color;
+            
+                if (isDeleting) {
+                    // Deleting Phase (Word by word remove)
+                    charIndex--;
+                    subtitleElement.innerHTML = currentPhrase.text.substring(0, charIndex);
+
+                    if (charIndex === 0) {
+                        // Deleting complete, move to next phrase
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(typeLoop, 500); // Chota pause before typing next
+                    } else {
+                        // Continue deleting (Fast speed)
+                        setTimeout(typeLoop, 25);
+                    }
+
+                } else {
+                    // Typing Phase (Word by word generate)
+                    charIndex++;
+                    subtitleElement.innerHTML = currentPhrase.text.substring(0, charIndex);
+
+                    if (charIndex === currentPhrase.text.length) {
+                        // Typing complete, pause then start deleting
+                        isDeleting = true;
+                        setTimeout(typeLoop, 2000); // Lamba pause after typing
+                    } else {
+                        // Continue typing (Normal speed)
+                        setTimeout(typeLoop, 70);
+                    }
+                }
+            };
+
+            // 3. Intersection Observer to trigger typing when section is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isTypingStarted) {
+                        isTypingStarted = true;
+                        observer.unobserve(portfolioSection); // Stop observing once started
+                        typeLoop(); // Start the loop
+                    }
+                });
+            }, {
+                threshold: 0.2 // 20% of the section must be visible to start
+            });
+        
+            observer.observe(portfolioSection);
+
+            //----about----->
+            const aboutSection = document.getElementById('about');
+            let animationStarted = false; // Flag to ensure animation runs only once on scroll
+        
+            // --- 1. Intersection Observer (Scroll Trigger) ---
+            if (aboutSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !animationStarted) {
+                            animationStarted = true; // Animation shuru hone ja rahi hai
+                            observer.unobserve(aboutSection); // Observer ko band kar dein
+                            
+                            // Animation ko shuru karein
+                            runHeroAnimation(); 
+                        }
+                    });
+                }, {
+                    threshold: 0.1 // 10% of the section visible to trigger
+                });
+                observer.observe(aboutSection);
+            }
+            
+            // --- 2. Click Listener (Navigation Restart) ---
+            const aboutLink = document.getElementById('nav-about-link'); // <-- Yeh ID aapke link/button ki hai
+            
+            if (aboutLink && aboutSection) {
+                aboutLink.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    
+                    // Navigation click se bhi animation shuru ya restart hogi
+                    animationStarted = true; 
+                    runHeroAnimation(); 
+                    
+                    // Scroll to the section
+                    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            } else {
+                console.warn("About Link ya About Section ID nahi mili. Click listener attach nahi hua.");
+            }
+            
+        });
+     
+    </script>
+</body>
+</html>
